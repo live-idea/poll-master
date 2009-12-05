@@ -1,0 +1,13 @@
+development:
+    adapter: mysql
+    encoding: utf8
+    database: poll_master    
+    username: root	
+    password: 
+    
+production:
+    adapter: mysql
+    encoding: utf8
+    database: poll_master
+    username: root
+    password: 
