@@ -1,0 +1,6 @@
+<ul>
+  <li><%=link_to t(:polls), polls_path%></li>
+  <%if @poll%>
+  <li><%=link_to t(:anketas), poll_anketas_path(@poll)%></li>
+  <%end%>
+</ul>
