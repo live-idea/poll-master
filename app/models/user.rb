@@ -1,6 +1,7 @@
 require 'digest/sha1'
 
 class User < ActiveRecord::Base
+  has_many :polls
   include Authentication
   include Authentication::ByPassword
   include Authentication::ByCookieToken
