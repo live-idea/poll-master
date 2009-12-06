@@ -11,3 +11,9 @@ uk:
   sing_up_enter: "Введення даних для реєстрації"
   sing_up: "Зареєструватися"
   to_login: "Вхід в систему"
+  could_not_login_as: "Не вдалось увійти як <b>%s</b>"
+  thanks_for_registration: "Дякуємо за реєстрацію"
+  errors_during_registration_process: "Виникли помилки в процесі реєстрації"
+  loggen_in_successfuly: "Ви успішно увійшли в систему"
+  loggen_out: "Ви вийшли з системи. До побачення."
+
