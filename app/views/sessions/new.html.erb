@@ -12,7 +12,7 @@
     <% form_tag({:action => :create}, :class => 'form login') do -%>
       <div class="group">
         <div class="left">
-          <label class="label right">Login</label>
+          <label class="label right"><%= t :login%></label>
         </div>
         <div class="right">
           <%= text_field_tag :login, @login, :class => 'text_field' %>
@@ -21,7 +21,7 @@
       </div>
       <div class="group">
         <div class="left">
-          <label class="label right">Password</label>
+          <label class="label right"><%= t :password%></label>
         </div>
         <div class="right">
           <%= password_field_tag :password, nil, :class => 'text_field' %>
@@ -30,7 +30,7 @@
       </div>
       <div class="group navform">
         <div class="right">
-          <input type="submit" class="button" value="Sign in" /> <%=t :or%> <%= link_to t(:register), signup_path %>
+          <input type="submit" class="button" value="<%= t :sign_in%>" /> <%=t :or%> <%= link_to t(:register), signup_path %>
         </div>
         <div class="clear"></div>
       </div>            
