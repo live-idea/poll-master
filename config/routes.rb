@@ -1,4 +1,9 @@
-ActionController::Routing::Routes.draw do |map|  
+
+ActionController::Routing::Routes.draw do |map|
+  
+  map.resources :polls do |poll|
+    poll.resources :anketas
+  end
 
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
@@ -7,7 +12,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
   map.resource :session
 
-  map.resources :polls
 
   # The priority is based upon order of creation: first created -> highest priority.
 
