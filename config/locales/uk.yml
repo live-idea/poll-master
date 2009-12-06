@@ -4,3 +4,10 @@
 uk:
   logout: "Вихід"
   login_box: "Вхід в систему"
+  login: "Логін"
+  email: "Електронна пошта"
+  password: "Пароль"
+  repeat_password: "Повторити пароль"
+  sing_up_enter: "Введення даних для реєстрації"
+  sing_up: "Зареєструватися"
+  to_login: "Вхід в систему"
