@@ -1,6 +1,6 @@
 <h1>Poll-Master</h1>
 <div class="block" id="block-signup">
-  <h2>Sign up</h2>        
+  <h2><%=t :sing_up_enter%></h2>
   <div class="content">
     <div class="flash">
       <% flash.each do |type, message| -%>
@@ -12,7 +12,7 @@
     <% form_for :user, :url => users_path, :html => { :class => 'form' } do |f| -%>
       <div class="group">
         <div class="left">
-          <label class="label">Login</label>
+          <label class="label"><%=t :login%></label>
         </div>
         <div class="right">
           <%= f.text_field :login, :class => 'text_field' %>
@@ -21,7 +21,7 @@
       </div>
       <div class="group">
         <div class="left">
-          <label class="label">Email</label>                
+          <label class="label"><%= t :email%></label>
         </div>
         <div class="right">
           <%= f.text_field :email, :class => 'text_field' %>
@@ -30,7 +30,7 @@
       </div>
       <div class="group">
         <div class="left">
-          <label class="label">Password</label>
+          <label class="label"><%= t :password%></label>
         </div>
         <div class="right">
           <%= f.password_field :password, :class => 'text_field' %>
@@ -40,7 +40,7 @@
       
       <div class="group">
         <div class="left">
-          <label class="label">Password</label>
+          <label class="label"><%= t :repeat_password%></label>
         </div>
         <div class="right">
           <%= f.password_field :password_confirmation, :class => 'text_field' %>
@@ -49,7 +49,7 @@
       </div>
       
       <div class="group navform">
-        <input type="submit" class="button" value="Sign up" />
+        <input type="submit" class="button" value="<%=t :sing_up%>" /><%=t :or%> <%= link_to t(:to_login), login_path %>
       </div>
     <% end -%>
   </div>
