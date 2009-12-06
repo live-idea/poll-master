@@ -4,9 +4,9 @@
   <div class="content">
     <div class="flash">
       <% flash.each do |type, message| -%>
-      <div class="message <%= type %>">
-        <p><%=  message %></p>
-      </div>
+        <div class="message <%= type %>">
+          <p><%=  message %></p>
+        </div>
       <% end -%>
     </div>
     <% form_for :user, :url => users_path, :html => { :class => 'form' } do |f| -%>
@@ -16,7 +16,7 @@
         </div>
         <div class="right">
           <%= f.text_field :login, :class => 'text_field' %>
-        </div>              
+        </div>
         <div class="clear"></div>
       </div>
       <div class="group">
@@ -25,7 +25,7 @@
         </div>
         <div class="right">
           <%= f.text_field :email, :class => 'text_field' %>
-        </div>              
+        </div>
         <div class="clear"></div>
       </div>
       <div class="group">
@@ -34,23 +34,27 @@
         </div>
         <div class="right">
           <%= f.password_field :password, :class => 'text_field' %>
-        </div>              
+        </div>
         <div class="clear"></div>
       </div>
-      
+
       <div class="group">
         <div class="left">
           <label class="label"><%= t :repeat_password%></label>
         </div>
         <div class="right">
           <%= f.password_field :password_confirmation, :class => 'text_field' %>
-        </div>              
+        </div>
         <div class="clear"></div>
       </div>
-      
+
       <div class="group navform">
-        <input type="submit" class="button" value="<%=t :sing_up%>" /><%=t :or%> <%= link_to t(:to_login), login_path %>
+        <div class="right">
+          <input type="submit" class="button" value="<%=t :sing_up%>" /> <%=t :or%> <%= link_to t(:to_login), login_path %>
+        </div>
+        <div class="clear"></div>
       </div>
+
     <% end -%>
   </div>
 </div>
