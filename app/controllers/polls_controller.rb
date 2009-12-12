@@ -1,6 +1,9 @@
 class PollsController < ApplicationController
   # GET /polls
   # GET /polls.xml
+
+  before_filter :login_required
+
   def index
     @polls = Poll.paginate :page => params[:page] || 1
 
@@ -14,7 +17,8 @@ class PollsController < ApplicationController
   # GET /polls/1.xml
   def show
     @poll = Poll.find(params[:id])
-
+    @anketas = Anketa.find_all_by_poll_id(params[:id])
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @poll }
@@ -42,6 +46,8 @@ class PollsController < ApplicationController
   def create
     @poll = Poll.new(params[:poll])
 
+    @poll.user = current_user
+    
     respond_to do |format|
       if @poll.save
         flash[:notice] = 'Poll was successfully created.'
