@@ -10,12 +10,7 @@
   <div class="content">
     <div class="inner">
       
-        <p>
-          <b><%=t:title_anketa%>:</b>
-          <%= @anketa.title %>
-        </p>
-
-        <p>
+              <p>
           <b><%=t:code%>:</b>
           <%= @anketa.code %>
         </p>
@@ -25,15 +20,42 @@
           <%= @anketa.description %>
         </p>
 
-        <p>
-          <b>Poll_id:</b>
-          <%= @anketa.poll_id %>
-        </p>
-
+       
       <%= link_to t(:edit_button, :img=>image_tag("web-app-theme/application_edit.png", :alt =>  t(:edit))), edit_poll_anketa_path(@poll,@anketa), :class => "button" %>
       <%= link_to t(:delete_button, :img=>image_tag("web-app-theme/cross.png", :alt =>  t(:edit))), poll_anketa_path(@poll,@anketa), :method => "delete", :class => "button", :confirm => "Are you sure?" %>
       <div class="clear"></div>
     </div>
+
+     <div class="inner">
+<h3><%=t:questions_all %></h3>
+    <table class="table">
+        <tr>
+         <th><%=t:question%></th>
+					<th><%=t:qtype%></th>
+
+          
+          <th><div align="right"><%=t :options %></div></th>
+        </tr>
+        <% @anketa.questions.each do |question| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          
+
+					<td>
+						<%= link_to question.body, poll_anketa_question_path(@poll,@anketa,question) %>
+					</td>
+
+					<td>
+            <%= question.qtype %>
+          </td>
+          <td class="last">
+            <%= link_to 'edit', edit_poll_anketa_question_path(@poll,@anketa,question) %> |
+            <%= link_to 'destroy', poll_anketa_question_path(@poll,@anketa,question), :method => :delete, :confirm => 'Are you sure?' %>
+          </td>
+        </tr>
+        <% end -%>
+      </table>
+    </div>
+
   </div>
 </div>
 

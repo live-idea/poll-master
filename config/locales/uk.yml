@@ -59,5 +59,10 @@ uk:
   edit_anketa: "Редагувати анкету"
   description_poll: "Опис опитування"
 
+  #description
+  questions_all: "Всі питання"
+  question: "Запитання"
+  qtype: "Тип запитання"
+
 
 

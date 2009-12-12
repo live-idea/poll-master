@@ -248,6 +248,10 @@ input.checkbox {
   margin: 0;
 }
 
+textarea.text_area {
+    height : 100px;
+}
+
 .form label.right {
   text-align: right;
 }
