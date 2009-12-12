@@ -12,7 +12,13 @@
           <%= simple_format @poll.description %>
         </p>
 
-              <table class="table">
+        <%= link_to t(:edit_img, :img=>image_tag("web-app-theme/application_edit.png", :alt =>  t(:edit))), edit_poll_path(@poll), :class => "button" %>
+        <%= link_to t(:destroy_img, :img=>image_tag("web-app-theme/cross.png", :alt =>  t(:destroy))), poll_path(@poll), :method => "delete", :class => "button", :confirm => t(:are_you_sure) %>
+
+    <div class="clear"></div>
+   </div>
+    <div class="inner">
+             <table class="table">
         <tr>
           <th class="first"><%=t :ID_number %></th>
 
@@ -40,12 +46,8 @@
         </tr>
         <% end -%>
       </table>
-
-        <%= link_to t(:edit_img, :img=>image_tag("web-app-theme/application_edit.png", :alt =>  t(:edit))), edit_poll_path(@poll), :class => "button" %>
-        <%= link_to t(:destroy_img, :img=>image_tag("web-app-theme/cross.png", :alt =>  t(:destroy))), poll_path(@poll), :method => "delete", :class => "button", :confirm => t(:are_you_sure) %>
-      <div class="clear"></div>
-    </div>
   </div>
+     </div>
 </div>
 
 <% content_for :sidebar, render(:partial => 'sidebar') -%>
