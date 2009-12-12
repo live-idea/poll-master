@@ -2,9 +2,11 @@ class AnketasController < ApplicationController
   # GET /anketas
   # GET /anketas.xml
   before_filter :get_poll
+
   def get_poll
     @poll = Poll.find_by_id(params[:poll_id])
   end
+
   def index
     @anketas = Anketa.paginate(:page => params[:page] || 1)
 
