@@ -1,7 +1,6 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul>
-      <li class="first active"><%= link_to t(:anketa_all), poll_anketas_path(@poll) %></li>
       <li><%= link_to t(:new_anketa), new_poll_anketa_path(@poll) %></li>
     </ul>
     <div class="clear"></div>
@@ -29,12 +28,12 @@
 					</td>
 					
 					<td>
-            <%= l( anketa.created_at.to_date, :format=> :long)%>
+            <%= l( anketa.created_at.to_date, :format=> :default)%>
           </td>
           <td class="last">
             <%= link_to t(:show), poll_anketa_path(@poll,anketa) %> |
             <%= link_to t(:edit), edit_poll_anketa_path(@poll,anketa) %> |
-            <%= link_to t(:destroy), poll_anketa_path(@poll,anketa), :method => :delete, :confirm => 'Are you sure?' %>
+            <%= link_to t(:destroy), poll_anketa_path(@poll,anketa), :method => :delete, :confirm => t(:are_you_sure) %>
           </td>
         </tr>          
         <% end -%>

@@ -23,28 +23,41 @@ uk:
   sign_in: "Вхід"
 
   #Major actions
-  destroy:    "Видалити"
-  edit:       "Редагувати"
-  new:        "Створити"
-  show:       "Деталі"
+  cancel:           "Відмінити"
+  cancel_img:       "{{img}}Відмінити"
+  create:           "Створити"
+  destroy:          "Видалити"
+  destroy_img:      " {{img}}Видалити"
+  edit:             "Редагувати"
+  edit_img:         "{{img}}Редагувати"
+  save:             "Зберегти"
+  show:             "Деталі"
+
+  author:           "Автор"
 
   #Major tables
-  ID_number:  "№ п/п"
-  title_name: "Назва"
-  branch:     "Галузь"
-  options:    "Опції"
-
+  ID_number:        "№ п/п"
+  title_name:       "Назва"
+  options:          "Опції"
 
   #Poll page
-  poll_state: "Стан опитування"
-  poll_start_date: "Створено"
-  polls_all:  "Всі опитування"
-  polls:      "Опитування"
+  poll_data:        "Інформація"
+  poll_create_date: "Дата створення"
+  poll_branch:      "Галузь"
+  poll_description: "Опис опитування"
+  poll_end_date:    "Дата закінчення"
+  poll_location:    "Місце проведення"
+  poll_new:         "Створити опитування"
+  poll_start_date:  "Створено"  
+  poll_state:       "Стан опитування"
+  poll_title:       "Тема опитування"
+  polls:            "Опитування"
+  polls_all:        "Всі опитування"
 
   #edit_new
   a_simple_text: "Наприклад: Простий текст"
-  edit_button: " {{img}} Редагувати"
-  delete_button: " {{img}} Видалити"
+  #question
+  are_you_sure:     "Ви впевненні?"
 
   #Anketa page
   anketas: "Анкети"

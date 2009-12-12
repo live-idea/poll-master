@@ -1,7 +1,6 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul>
-      <li class="first"><%= link_to t(:anketa_all), poll_anketas_path(@poll)  %></li>
       <li><%= link_to t(:new_anketa), new_poll_anketa_path(@poll ) %></li>
       <li class="active"><%= link_to t(:show_anketa), poll_anketas_path(@poll) %></li>
     </ul>
@@ -29,9 +28,8 @@
           <b>Poll_id:</b>
           <%= @anketa.poll_id %>
         </p>
-
-      <%= link_to t(:edit_button, :img=>image_tag("web-app-theme/application_edit.png", :alt =>  t(:edit))), edit_poll_anketa_path(@poll,@anketa), :class => "button" %>
-      <%= link_to t(:delete_button, :img=>image_tag("web-app-theme/cross.png", :alt =>  t(:edit))), poll_anketa_path(@poll,@anketa), :method => "delete", :class => "button", :confirm => "Are you sure?" %>
+      <%= link_to t(:edit_img, :img=>image_tag("web-app-theme/application_edit.png", :alt =>  t(:destroy))), edit_poll_anketa_path(@poll,@anketa), :class => "button" %>
+      <%= link_to t(:destroy_img, :img=>image_tag("web-app-theme/cross.png", :alt =>  t(:destroy))), poll_anketa_path(@poll,@anketa), :method => "delete", :class => "button", :confirm => t(:are_you_sure) %>
       <div class="clear"></div>
     </div>
   </div>

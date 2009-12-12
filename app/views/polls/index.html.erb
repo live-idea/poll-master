@@ -2,7 +2,7 @@
   <div class="secondary-navigation">
     <ul>
       <li class="first active"><%= link_to t(:polls_all), polls_path %></li>
-      <li><%= link_to t(:new), new_poll_path %></li>
+      <li><%= link_to t(:poll_new), new_poll_path %></li>
     </ul>
     <div class="clear"></div>
   </div>          
@@ -15,7 +15,7 @@
 					
 	  <th><%=t :title_name %></th>
 
-          <th><%=t :branch %></th>
+          <th><%=t :poll_branch %></th>
           <th><%=t :poll_state %></th>
           <th><%=t :poll_start_date %></th>
           <th class="last"> <%=t :options %></th>
@@ -46,7 +46,7 @@
           <td>
             <%= link_to t(:show), poll_path(poll) %> |
             <%= link_to t(:edit), edit_poll_path(poll) %> |
-            <%= link_to t(:destroy), poll_path(poll), :method => :delete, :confirm => 'Are you sure?' %>
+            <%= link_to t(:destroy), poll_path(poll), :method => :delete, :confirm => t(:are_you_sure) %>
           </td>
         </tr>          
         <% end -%>

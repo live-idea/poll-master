@@ -1,14 +1,14 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul>
-      <li class="first"><%= link_to 'List', polls_path  %></li>
-      <li><%= link_to 'New', new_poll_path %></li>
-      <li class="active"><%= link_to 'Edit', edit_poll_path %></li>
+      <li class="first"><%= link_to t(:polls_all), polls_path  %></li>
+      <li><%= link_to t(:poll_new), new_poll_path %></li>
+      <li class="active"><%= link_to t(:edit), edit_poll_path %></li>
     </ul>
     <div class="clear"></div>
   </div>          
   <div class="content">            
-    <h2 class="title">Edit Poll</h2>
+    <h2 class="title"><%= t(:edit) %></h2>
     <div class="inner">
       <% form_for @poll, :url => poll_path(@poll), :html => { :class => :form } do |f| -%>
         <%= render :partial => "form", :locals => {:f => f} %>
