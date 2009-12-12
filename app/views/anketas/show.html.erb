@@ -1,9 +1,9 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul>
-      <li class="first"><%= link_to 'List', poll_anketas_path(@poll)  %></li>
-      <li><%= link_to 'New', new_poll_anketa_path(@poll) %></li>
-      <li class="active"><%= link_to 'Show', poll_anketas_path(@poll) %></li>
+      <li class="first"><%= link_to t(:anketa_all), poll_anketas_path(@poll)  %></li>
+      <li><%= link_to t(:new_anketa), new_poll_anketa_path(@poll ) %></li>
+      <li class="active"><%= link_to t(:show_anketa), poll_anketas_path(@poll) %></li>
     </ul>
     <div class="clear"></div>
   </div>          
@@ -11,17 +11,17 @@
     <div class="inner">
       
         <p>
-          <b>Title:</b>
+          <b><%=t:title_anketa%>:</b>
           <%= @anketa.title %>
         </p>
 
         <p>
-          <b>Code:</b>
+          <b><%=t:code%>:</b>
           <%= @anketa.code %>
         </p>
 
         <p>
-          <b>Description:</b>
+          <b><%=t:description%>:</b>
           <%= @anketa.description %>
         </p>
 
@@ -30,8 +30,8 @@
           <%= @anketa.poll_id %>
         </p>
 
-      <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "Edit")} Edit", edit_poll_anketa_path(@poll,@anketa), :class => "button" %>
-      <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "Edit")} Delete", poll_anketa_path(@poll,@anketa), :method => "delete", :class => "button", :confirm => "Are you sure?" %>
+      <%= link_to t(:edit_button, :img=>image_tag("web-app-theme/application_edit.png", :alt =>  t(:edit))), edit_poll_anketa_path(@poll,@anketa), :class => "button" %>
+      <%= link_to t(:delete_button, :img=>image_tag("web-app-theme/cross.png", :alt =>  t(:edit))), poll_anketa_path(@poll,@anketa), :method => "delete", :class => "button", :confirm => "Are you sure?" %>
       <div class="clear"></div>
     </div>
   </div>
