@@ -1,8 +1,12 @@
 
 ActionController::Routing::Routes.draw do |map|
+  map.resources :questions
+
 
   map.resources :polls do |poll|
-    poll.resources :anketas
+    poll.resources :anketas do |anketa|
+      anketa.resources :questions
+    end
   end
 
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
@@ -11,6 +15,7 @@ ActionController::Routing::Routes.draw do |map|
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.resources :users
   map.resource :session
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

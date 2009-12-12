@@ -1,43 +1,48 @@
-<div class="block">          
+<div class="block">
+   <div class="secondary-navigation">
+    <ul>
+      <li><%= link_to t(:new_anketa), new_poll_anketa_path(@poll) %></li>
+    </ul>
+    <div class="clear"></div>
+  </div>
   <div class="content">
     <div class="inner">
         <p>
-          <b>Branch:</b>
-          <%= @poll.branch %>
-        </p>
-
-        <p>
-          <b>Location:</b>
-          <%= @poll.location %>
-        </p>
-
-        <p>
-          <b>State:</b>
-          <%= @poll.state %>
-        </p>
-
-        <p>
-          <b>Description:</b>
+          <b><%= t(:poll_description)%>:</b>
           <%= simple_format @poll.description %>
         </p>
 
-        <p>
-          <b>Start_date:</b>
-          <%= @poll.start_date %>
-        </p>
+              <table class="table">
+        <tr>
+          <th class="first"><%=t :ID_number %></th>
 
-        <p>
-          <b>End_date:</b>
-          <%= @poll.end_date %>
-        </p>
+					<th><%=t :title_name %></th>
 
-        <p>
-          <b>User_id:</b>
-          <%= @poll.user.login %>
-        </p>
+          <th><%=t :poll_start_date %></th>
+          <th><div align="right"><%=t :options %></div></th>
+        </tr>
+        <% @anketas.each do |anketa| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= anketa.id %>
+          </td>
+   	  <td>
+	    <%= link_to anketa.title, poll_anketa_path(@poll,anketa) %>
+	  </td>
+	  <td>
+            <%= l( anketa.created_at.to_date, :format=> :default)%>
+          </td>
+          <td class="last">
+            <%= link_to t(:show), poll_anketa_path(@poll,anketa) %> |
+            <%= link_to t(:edit), edit_poll_anketa_path(@poll,anketa) %> |
+            <%= link_to t(:destroy), poll_anketa_path(@poll,anketa), :method => :delete, :confirm => t(:are_you_sure) %>
+          </td>
+        </tr>
+        <% end -%>
+      </table>
 
-      <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "Edit")} Edit", edit_poll_path(@poll), :class => "button" %> 
-      <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "Edit")} Delete", poll_path(@poll), :method => "delete", :class => "button", :confirm => "Are you sure?" %> 
+        <%= link_to t(:edit_img, :img=>image_tag("web-app-theme/application_edit.png", :alt =>  t(:edit))), edit_poll_path(@poll), :class => "button" %>
+        <%= link_to t(:destroy_img, :img=>image_tag("web-app-theme/cross.png", :alt =>  t(:destroy))), poll_path(@poll), :method => "delete", :class => "button", :confirm => t(:are_you_sure) %>
       <div class="clear"></div>
     </div>
   </div>

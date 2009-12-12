@@ -1,11 +1,32 @@
 <% if @anketas %>
   <div class="block">
-    <h3>Links</h3>
-      <ul class="navigation">
-      <% @anketas.each do |anketa| -%>
-        <li><a <%= link_to anketa.title, poll_anketa_path(@poll,anketa) %> </a> </li>
-      <% end -%>
-    </ul>
+    <h3><%= t(:poll_data)%></h3>
+      <div class="content">
+        <p>
+          <b><%= t(:author) %>:</b>
+          <%= @poll.user.login %>
+        </p>
+        <p>
+          <b><%= t(:poll_create_date) %>:</b>
+          <%= @poll.start_date %>
+        </p>
+        <p>
+          <b><%= t(:poll_end_date)%>:</b>
+          <%= @poll.end_date %>
+        </p>
+        <p>
+          <b><%= t(:poll_branch)%>:</b>
+          <%= @poll.branch %>
+        </p>
+        <p>
+          <b><%= t(:poll_location)%>:</b>
+          <%= @poll.location %>
+        </p>
+        <p>
+          <b><%= t(:poll_state) %>:</b>
+          <%= @poll.state %>
+        </p>
+      </div>
   </div>
 <% end -%>
 
