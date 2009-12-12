@@ -37,7 +37,7 @@ uk:
 
   #Poll page
   poll_state: "Стан опитування"
-  poll_start_date: "Створене"
+  poll_start_date: "Дата створення"
   polls_all:  "Всі опитування"
   polls:      "Опитування"
 
