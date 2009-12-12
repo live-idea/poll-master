@@ -6,7 +6,7 @@ class AnketasController < ApplicationController
     @poll = Poll.find_by_id(params[:poll_id])
   end
   def index
-    @anketas = Anketa.paginate(:page => params[:page] || 1)
+    @anketas = @poll.anketas.paginate(:page => params[:page] || 1)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -45,6 +45,7 @@ class AnketasController < ApplicationController
   # POST /anketas.xml
   def create
     @anketa = Anketa.new(params[:anketa])
+    @anketa.poll=@poll
 
     respond_to do |format|
       if @anketa.save
