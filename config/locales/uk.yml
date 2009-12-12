@@ -1,6 +1,8 @@
 # Sample localization file for English. Add more files in this directory for other locales.
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
+  
+
 uk:
   logout: "Вихід"
   login_box: "Вхід в систему"
@@ -19,5 +21,43 @@ uk:
   or: "або"
   register: "Зареєструватись"
   sign_in: "Вхід"
+
+  #Major actions
+  destroy:    "Видалити"
+  edit:       "Редагувати"
+  new:        "Створити"
+  show:       "Деталі"
+
+  #Major tables
+  ID_number:  "№ п/п"
+  title_name: "Назва"
+  branch:     "Галузь"
+  options:    "Опції"
+
+
+  #Poll page
+  poll_state: "Стан опитування"
+  poll_start_date: "Створено"
+  polls_all:  "Всі опитування"
+  polls:      "Опитування"
+
+  #edit_new
+  a_simple_text: "Наприклад: Простий текст"
+  edit_button: " {{img}} Редагувати"
+  delete_button: " {{img}} Видалити"
+
+  #Anketa page
+  anketas: "Анкети"
+  anketa_all: "Всі анкети"
+  new_anketa: "Створити нову анкету"
+  anketas_all: "Всі анкети"
+  one_new_anketa: "Нова анкета"
+  show_anketa: "Перегляд"
+  title_anketa: "Назва анкети"
+  code: "Код"
+  description: "Опис"
+  edit_anketa: "Редагувати анкету"
+  description_poll: "Опис опитування"
+
 
 

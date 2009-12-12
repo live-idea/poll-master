@@ -9,12 +9,6 @@
   </div>          
   <div class="content">
     <div class="inner">
-      
-        <p>
-          <b>Title:</b>
-          <%= @poll.title %>
-        </p>
-
         <p>
           <b>Branch:</b>
           <%= @poll.branch %>
@@ -32,7 +26,7 @@
 
         <p>
           <b>Description:</b>
-          <%= @poll.description %>
+          <%= simple_format @poll.description %>
         </p>
 
         <p>
@@ -47,7 +41,7 @@
 
         <p>
           <b>User_id:</b>
-          <%= @poll.user_id %>
+          <%= @poll.user.login %>
         </p>
 
       <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "Edit")} Edit", edit_poll_path(@poll), :class => "button" %> 

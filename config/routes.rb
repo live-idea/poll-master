@@ -1,6 +1,6 @@
 
 ActionController::Routing::Routes.draw do |map|
-  
+
   map.resources :polls do |poll|
     poll.resources :anketas
   end
