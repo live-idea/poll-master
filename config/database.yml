@@ -1,0 +1,13 @@
+development:
+  adapter:  mysql
+  database: poll_master
+  username: root
+  password: kokain
+  encoding: utf8
+    
+production:
+  adapter:  mysql
+  database: poll_master
+  username: root
+  password: kokain
+  encoding: utf8
