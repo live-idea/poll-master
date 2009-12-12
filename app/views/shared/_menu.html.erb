@@ -2,7 +2,7 @@
   <li <%if params[:controller] == 'polls' && params[:action] == 'index'%>class='active'<%end%>><%=link_to t(:polls), polls_path%></li>
   
 <%if @poll && @poll.id %>
-  <li <%if params[:controller] == 'polls' && params[:action] == 'show'%>class='active'<%end%>><%=link_to @poll.title, poll_path%></li>
+  <li <%if params[:controller] == 'polls' && params[:action] == 'show'%>class='active'<%end%>><%=link_to @poll.title, poll_path(@poll)%></li>
     <%end%>
 </ul>
 <!-- && params[:action] == 'index'%> - перевіряє чи index, та && params[:action] == 'show'% - перевіряє чи show
