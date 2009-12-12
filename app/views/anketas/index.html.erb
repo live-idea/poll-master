@@ -1,22 +1,22 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul>
-      <li class="first active"><%= link_to 'List', poll_anketas_path(@poll) %></li>
-      <li><%= link_to 'New', new_poll_anketa_path(@poll) %></li>
+      <li class="first active"><%= link_to t(:anketa_all), poll_anketas_path(@poll) %></li>
+      <li><%= link_to t(:new_anketa), new_poll_anketa_path(@poll) %></li>
     </ul>
     <div class="clear"></div>
   </div>          
   <div class="content">          
-    <h2 class="title">All Anketas</h2>
+    <h2 class="title"><%=t :anketas_all %></h2>
     <div class="inner">
       <table class="table">
         <tr>             
-          <th class="first">ID</th>
+          <th class="first"><%=t :ID_number %></th>
 					
-					<th>Title</th>
+					<th><%=t :title_name %></th>
 					
-          <th>Created at</th>
-          <th class="last">&nbsp;</th>
+          <th><%=t :poll_start_date %></th>
+          <th><div align="right"><%=t :options %></div></th>
         </tr>
         <% @anketas.each do |anketa| -%>
         <tr class="<%= cycle("odd", "even") %>">
@@ -29,12 +29,12 @@
 					</td>
 					
 					<td>
-            <%= anketa.created_at %>
+            <%= l( anketa.created_at.to_date, :format=> :long)%>
           </td>
           <td class="last">
-            <%= link_to 'show', poll_anketa_path(@poll,anketa) %> |
-            <%= link_to 'edit', edit_poll_anketa_path(@poll,anketa) %> |
-            <%= link_to 'destroy', poll_anketa_path(@poll,anketa), :method => :delete, :confirm => 'Are you sure?' %>
+            <%= link_to t(:show), poll_anketa_path(@poll,anketa) %> |
+            <%= link_to t(:edit), edit_poll_anketa_path(@poll,anketa) %> |
+            <%= link_to t(:destroy), poll_anketa_path(@poll,anketa), :method => :delete, :confirm => 'Are you sure?' %>
           </td>
         </tr>          
         <% end -%>
