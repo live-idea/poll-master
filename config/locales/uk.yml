@@ -62,7 +62,7 @@ uk:
   #Anketa page
   anketas: "Анкети"
   anketa_all: "Всі анкети"
-  new_anketa: "Створити нову анкету"
+  anketa_new: "Створити нову анкету"
   anketas_all: "Всі анкети"
   one_new_anketa: "Нова анкета"
   show_anketa: "Перегляд"
@@ -71,6 +71,9 @@ uk:
   description: "Опис"
   edit_anketa: "Редагувати анкету"
   description_poll: "Опис опитування"
+
+  #Result page
+  result_new: "Заповнити анкету"
 
   #description
   question_new: "Створити нове запитання"

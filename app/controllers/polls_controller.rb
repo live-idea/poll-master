@@ -2,11 +2,6 @@ class PollsController < ApplicationController
 
   before_filter :login_required
 
-  # GET /polls
-  # GET /polls.xml
-
-  before_filter :login_required
-
   def index
     @polls = Poll.paginate :page => params[:page] || 1
 

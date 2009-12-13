@@ -1,11 +1,7 @@
 class QuestionsController < ApplicationController
-  # GET /questions
-  # GET /questions.xml
-  before_filter :get_anketa #фільтр для визначення залежного poll анкети
-  def get_anketa
-    @poll = Poll.find_by_id(params[:poll_id])
-    @anketa = Anketa.find_by_id(params[:anketa_id]) #ВИБІР анкети по id
-  end
+
+  before_filter :login_required
+
   def index
     @questions = @anketa.questions.paginate(:page => params[:page] || 1)
 
@@ -51,7 +47,7 @@ class QuestionsController < ApplicationController
     respond_to do |format|
       if @question.save
         flash[:notice] = 'Question was successfully created.'
-        format.html { redirect_to(poll_anketa_question_path(@poll,@anketa,@question)) } #збереження та повернення
+        format.html { redirect_to(poll_anketa_path(@poll,@anketa)) } #збереження та повернення
         format.xml  { render :xml => @question, :status => :created, :location => @question }
       else
         format.html { render :action => "new" }
@@ -68,7 +64,7 @@ class QuestionsController < ApplicationController
     respond_to do |format|
       if @question.update_attributes(params[:question])
         flash[:notice] = 'Question was successfully updated.'
-        format.html { redirect_to(poll_anketa_question_path(@poll,@anketa,@question)) }
+        format.html { redirect_to(poll_anketa_path(@poll,@anketa)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
