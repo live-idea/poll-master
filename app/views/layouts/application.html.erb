@@ -3,7 +3,8 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Poll-Master</title>
-	<%= stylesheet_link_tag "web_app_theme", "web_app_theme_override", "themes/djime-cerulean/style", :cache => true %>
+	<%=javascript_include_tag :defaults%>
+<%= stylesheet_link_tag "web_app_theme", "web_app_theme_override", "themes/djime-cerulean/style", :cache => true %>
 </head>
 <body>
   <div id="container">
@@ -33,7 +34,7 @@
         <%= yield %>
         <div id="footer">
           <div class="block">
-            <p>&copy; 2009 Poll-Master, <a href="http://live-idea.org">ШРІ</a>.</p>
+            <p>&copy; <%= Time.now.year == 2009 ? Time.now.year : 2009 - Time.now.year %> Poll-Master, <a href="http://live-idea.org">ШРІ</a>.</p>
           </div>      
         </div>
       </div>
