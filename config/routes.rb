@@ -1,11 +1,15 @@
 
 ActionController::Routing::Routes.draw do |map|
+  map.resources :results
+
   map.resources :questions
 
 
   map.resources :polls do |poll|
     poll.resources :anketas do |anketa|
       anketa.resources :questions
+      anketa.resources :results
+ 
     end
   end
 
