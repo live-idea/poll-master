@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.xml
+
   before_filter :get_anketa #фільтр для визначення залежного poll анкети
   def get_anketa
     @poll = Poll.find_by_id(params[:poll_id])
