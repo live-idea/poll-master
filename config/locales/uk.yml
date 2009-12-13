@@ -56,14 +56,26 @@ uk:
 
   #edit_new
   a_simple_text: "Наприклад: Простий текст"
+
   #question
   are_you_sure:     "Ви впевненні?"
+  question_new: "Створити нове запитання"
+  questions_all: "Всі питання"
+  question: "Запитання"
+  qtype: "Тип запитання"
+  question_body: "Запитання"
+  question_variants: "Варіанти відповіді"
+  question_mandatory: "Обов'язкове"
+  questions_enter_variants: "Кожний варіант відповіді вводити з нового рядка"
+  string_type: "Рядок"
+  text_type: "Текст"
+  select_type: "Вибіркове"
+
 
   #Anketa page
   anketas: "Анкети"
   anketa_all: "Всі анкети"
   new_anketa: "Створити нову анкету"
-  anketas_all: "Всі анкети"
   one_new_anketa: "Нова анкета"
   show_anketa: "Перегляд"
   title_anketa: "Назва анкети"
@@ -72,11 +84,7 @@ uk:
   edit_anketa: "Редагувати анкету"
   description_poll: "Опис опитування"
 
-  #description
-  question_new: "Створити нове запитання"
-  questions_all: "Всі питання"
-  question: "Запитання"
-  qtype: "Тип запитання"
+
 
 
 
