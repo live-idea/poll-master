@@ -1,7 +1,7 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul>
-      <li class="first"><%= link_to 'List', poll_anketa_questions_path(@poll,@anketa)  %></li>
+      <li class="first"><%= link_to 'List', poll_anketa_path(@poll,@anketa)  %></li>
       <li class="active"><%= link_to 'New', new_poll_anketa_question_path(@poll,@anketa) %></li>
     </ul>
     <div class="clear"></div>
@@ -9,7 +9,7 @@
   <div class="content">            
     <h2 class="title">New Question</h2>
     <div class="inner">
-      <% form_for :question, :url => poll_anketa_questions_path(@poll,@anketa), :html => { :class => :form } do |f| -%>
+      <% form_for :question, :url => poll_anketa_path(@poll,@anketa), :html => { :class => :form } do |f| -%>
         <%= render :partial => "form", :locals => {:f => f} %>
       <% end -%>
     </div>

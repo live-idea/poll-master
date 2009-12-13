@@ -26,7 +26,7 @@
       
 <div class="group navform">
   <button class="button" type="submit">
-    <%= image_tag("web-app-theme/tick.png", :alt => "Save") %> Save
+     <%= image_tag("web-app-theme/tick.png", :alt => t(:save)) %> <%= t(:save) %>
   </button>  
   <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "Cancel")} Cancel", poll_anketa_questions_path(@poll,@anketa), :class => "button" %>
   <div class="clear"></div>

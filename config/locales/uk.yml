@@ -27,7 +27,7 @@ uk:
   cancel_img:       "{{img}}Відмінити"
   create:           "Створити"
   destroy:          "Видалити"
-  destroy_img:      " {{img}}Видалити"
+  destroy_img:      "{{img}}Видалити"
   edit:             "Редагувати"
   edit_img:         "{{img}}Редагувати"
   save:             "Зберегти"
@@ -73,6 +73,7 @@ uk:
   description_poll: "Опис опитування"
 
   #description
+  question_new: "Створити нове запитання"
   questions_all: "Всі питання"
   question: "Запитання"
   qtype: "Тип запитання"
