@@ -73,6 +73,7 @@ uk:
   description_poll: "Опис опитування"
 
   #description
+  new_question: "Створити нове запитання"
   questions_all: "Всі питання"
   question: "Запитання"
   qtype: "Тип запитання"
