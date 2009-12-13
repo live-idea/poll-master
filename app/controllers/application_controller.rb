@@ -6,8 +6,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   include AuthenticatedSystem
 
-  before_filter :get_poll_anketa #фільтр для визначення залежного poll анкети
-
   def get_poll_anketa
     @poll = Poll.find_by_id(params[:poll_id])
     @anketa = Anketa.find_by_id(params[:anketa_id]) #ВИБІР анкети по id
