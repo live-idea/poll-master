@@ -383,3 +383,39 @@ button.button:hover, a.button:hover {
 button.button:active, a.button:active {
   background-color:#e5e5e5;
 }
+
+/*error_messages_for QUESTION*/
+
+.fieldWithErrors {
+  padding: 5px;
+  background-color: #fdd;
+ }
+
+#errorExplanation {
+  border: 3px solid #fbb;
+  padding: 7px;
+  background-color: #fdd;
+  margin-bottom: 15px;
+}
+
+#errorExplanation h2 {
+  font-weight: bold;
+  font-size: 13px;
+  background-color: #fdd;
+  text-align:right;
+  margin:0;
+  padding:0;
+  }
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px 5px 5px 0;
+  font-weight: bold;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+  margin-left: 15px;
+}
