@@ -1,6 +1,7 @@
 class PollsController < ApplicationController
 
   before_filter :login_required
+  before_filter :get_poll_anketa
 
   def index
     @polls = Poll.paginate :page => params[:page] || 1

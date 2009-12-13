@@ -1,6 +1,6 @@
 class ResultsController < ApplicationController
-  # GET /results
-  # GET /results.xml
+  before_filter :get_poll_anketa
+
   def index
     @results = Result.all
 
@@ -24,7 +24,9 @@ class ResultsController < ApplicationController
   # GET /results/new
   # GET /results/new.xml
   def new
+   
     @result = Result.new
+    @questions = Question.find_all_by_anketa_id(@anketa)
 
     respond_to do |format|
       format.html # new.html.erb
