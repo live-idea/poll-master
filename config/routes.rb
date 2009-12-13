@@ -1,3 +1,4 @@
+
 ActionController::Routing::Routes.draw do |map|
   map.resources :questions
 
@@ -7,7 +8,6 @@ ActionController::Routing::Routes.draw do |map|
       anketa.resources :questions
     end
   end
-
 
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
@@ -50,7 +50,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  map.root :controller => "sessions", :action => "new"
+  map.root :controller => "polls"
 
   # See how all your routes lay out with "rake routes"
 
