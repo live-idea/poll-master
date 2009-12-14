@@ -3,6 +3,13 @@ class QuestionsController < ApplicationController
   before_filter :login_required
   before_filter :get_poll_anketa
 
+  # GET /questions
+  # GET /questions.xml
+  before_filter :get_anketa #фільтр для визначення залежного poll анкети
+  def get_anketa
+    @poll = Poll.find_by_id(params[:poll_id])
+    @anketa = Anketa.find_by_id(params[:anketa_id]) #ВИБІР анкети по id
+  end
   def index
     @questions = @anketa.questions.paginate(:page => params[:page] || 1)
 

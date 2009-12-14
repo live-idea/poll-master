@@ -1,34 +1,34 @@
 
-  <div class="group">
-    <%= f.label :qtype, "Qtype", :class => :label %>
+<div class="group">
+  <%= f.label :qtype, t(:qtype), :class => :label %>
     <%= f.select(:qtype, [[ t(:string_type), "string"], [ t(:text_type), "text"], [ t(:select_type), "select"], [ t(:boolean_type), "boolean"]], {}, {:onchange=>"select_type()"}) %>
+</div>
     <span class="description">Ex: a simple text</span>
   </div>
 
-  <div class="group">
-    <%= f.label :body, "Body", :class => :label %>
-    <%= f.text_area :body, :class => 'text_area' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
+<div class="group">
+  <%= f.label :body, t(:question_body), :class => :label %>
+  <%= f.text_area :body, :class => 'text_area' %>
+  <span class="description"><%=t:a_simple_text%></span>
+</div>
 
-  <div class="group" id="variants">
-    <%= f.label :variants, "Variants", :class => :label %>
-    <%= f.text_area :variants, :class => 'text_area' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
+<div class="group" id="variants">
+  <%= f.label :variants, t(:question_variants), :class => :label %>
+  <%= f.text_area :variants, :class => 'text_area' %>
+  <span class="description"><%=t:questions_enter_variants%></span>
+</div>
 
-  <div class="group">
-    <%= f.label :mandatory, "Mandatory", :class => :label %>
-    <%= f.check_box :mandatory, :class => 'check_box' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
+<div class="group">
+  <%= f.label :mandatory, t(:question_mandatory), :class => :label %>
+  <%= f.check_box :mandatory, :class => 'check_box' %>
+</div>
 
-      
+
 <div class="group navform">
   <button class="button" type="submit">
-     <%= image_tag("web-app-theme/tick.png", :alt => t(:save)) %> <%= t(:save) %>
+    <%= image_tag("web-app-theme/tick.png", :alt => t(:save)) %> <%= t(:save) %>
   </button>  
-  <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "Cancel")} Cancel", poll_anketa_questions_path(@poll,@anketa), :class => "button" %>
+  <%= link_to t(:cancel_img, :img=>image_tag("web-app-theme/cross.png", :alt => t(:cancel))), poll_anketa_questions_path(@poll,@anketa), :class => "button" %>
   <div class="clear"></div>
 </div>
 

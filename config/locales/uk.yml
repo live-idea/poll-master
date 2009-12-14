@@ -32,7 +32,6 @@ uk:
   edit_img:         "{{img}}Редагувати"
   save:             "Зберегти"
   show:             "Деталі"
-
   author:           "Автор"
 
   #Major tables
@@ -56,14 +55,30 @@ uk:
 
   #edit_new
   a_simple_text: "Наприклад: Простий текст"
+
   #question
   are_you_sure:     "Ви впевненні?"
+  question_new: "Створити нове запитання"
+  questions_all: "Всі питання"
+  question: "Запитання"
+  qtype: "Тип запитання"
+  question_body: "Запитання"
+  question_variants: "Варіанти відповіді"
+  question_mandatory: "Обов'язкове поле"
+  questions_enter_variants: "Кожний варіант відповіді вводити з нового рядка"
+  question_edit: "Редагувати питання"
+  string_type: "Рядок"
+  text_type: "Текст"
+  select_type: "Вибіркове"
+
 
   #Anketa page
   anketas: "Анкети"
   anketa_all: "Всі анкети"
+
   anketa_new: "Створити нову анкету"
   anketas_all: "Всі анкети"
+
   one_new_anketa: "Нова анкета"
   show_anketa: "Перегляд"
   title_anketa: "Назва анкети"
@@ -72,21 +87,41 @@ uk:
   edit_anketa: "Редагувати анкету"
   description_poll: "Опис опитування"
 
+
   #Result page
   result_new: "Заповнити анкету"
   results_all: "Результати"
 
   #description
   question_new: "Створити нове запитання"
-  questions_all: "Всі питання"
   question: "Запитання"
   qtype: "Тип запитання"
 
-  #types
+    #types
   string_type:  "Стрічка"
   text_type:    "Текст"
   select_type:  "Вибір"
-  boolean_type: "Логічний"
+  boolean_type: "Логіцний"
   boolean_type_true:  "Так"
   boolean_type_false: "Ні"
+
+  #activerecord validates_presence_of
+  activerecord:
+    models:
+      question: "Запитання"
+      anketa:
+    attributes:
+      question:
+        body: "Запитання -"
+      anketa:
+        title: "Назва анкети -"
+        code: "Код -"
+        description: "Опис -"
+    errors:
+      template:
+        header:
+          one: "1 помилка при збережені нового запису"
+          other: "{{count}} помилки(ок) при збережені нового запису"
+        body: "Подивіться будь ласка на наступні поля:"
+
 

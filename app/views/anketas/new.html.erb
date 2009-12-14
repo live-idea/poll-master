@@ -9,6 +9,7 @@
   <div class="content">            
     <h2 class="title"><%=t :one_new_anketa %></h2>
     <div class="inner">
+      <%= error_messages_for :anketa%>
       <% form_for :anketa, :url => poll_anketas_path(@poll), :html => { :class => :form } do |f| -%>
         <%= render :partial => "form", :locals => {:f => f} %>
       <% end -%>
