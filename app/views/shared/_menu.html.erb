@@ -4,8 +4,13 @@
   <%if @poll && @poll.id %>
     <li <%if params[:controller] == 'polls' && params[:action] == 'show'%>class='active'<%end%>><%=link_to @poll.title, poll_path(@poll)%></li>
   <%end%>
+
   <%if @anketa && @anketa.id %>
-    <li class='active'><%=link_to @anketa.title, poll_anketa_path(@poll,@anketa)%></li>
+    <li <%if params[:controller] == 'anketas' && params[:action] == 'show'%>class='active'<%end%>><%=link_to @anketa.title, poll_anketa_path(@poll,@anketa)%></li>
+  <%end%>
+
+  <%if @results %>
+    <li class='active'><%=link_to t(:results_all), poll_anketa_results_path(@poll,@anketa)%></li>
   <%end%>
 </ul>
 <!-- && params[:action] == 'index'%> - перевіряє чи index, та && params[:action] == 'show'% - перевіряє чи show

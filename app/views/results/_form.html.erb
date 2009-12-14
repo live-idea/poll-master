@@ -1,14 +1,22 @@
+<%  @result.answers.each_with_index do |answer, index|%>
+  <div class="group">
+      <%= f.label :body, answer.question.body, :class => :label %>
+      <%if answer.question.qtype == "boolean"  %>
+        <%= t(:boolean_type_true)%> <%= radio_button_tag "result[answers][#{index}][body]", "yes", checked = true %>
+        <%= hidden_field_tag "result[answers][#{index}][question_id]", answer.question.id %>
+        <%= t(:boolean_type_false)%> <%= radio_button_tag "result[answers][#{index}][body]", "no" %>
+        <%= hidden_field_tag "result[answers][#{index}][question_id]", answer.question.id %>
+      <%else%>
+        <%= text_field_tag "result[answers][#{index}][body]" %>
+        <%= hidden_field_tag "result[answers][#{index}][question_id]", answer.question.id %>
+      <% end %>
+  </div>
+<%end%>
 
-  <% @questions.each do |question| -%>
-    <div class="group">
-      <%= f.label :body, question.body, :class => :label %>
-    </div>
-  <% end -%>
-        
 <div class="group navform">
   <button class="button" type="submit">
     <%= image_tag("web-app-theme/tick.png", :alt => "Save") %> Save
   </button>  
-  <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "Cancel")} Cancel", results_path, :class => "button" %> 
+  <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "Cancel")} Cancel", poll_anketa_results_path(@poll,@anketa), :class => "button" %>
   <div class="clear"></div>
 </div>
