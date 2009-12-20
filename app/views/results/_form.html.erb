@@ -1,35 +1,42 @@
 <%  @result.answers.each_with_index do |answer, index|%>
-  <div class="group">
-      <%= f.label :body, answer.question.body, :class => :label %>
+  <%
+  class_error = "class='group'"
+
+  if answer.errors.any?
+    class_error = "class='group fieldWithErrors'"
+  end
+%>
+  <div  <%=class_error%>>
+    <%= f.label :body, answer.question.body, :class => :label %>
     <%if answer.id%>
       <%= hidden_field_tag "result[answers][#{index}][id]", answer.id %>
     <%end%>
-      <%if answer.question.qtype == "boolean"%>
-         <%sel = answer.body == 'true' ? true : false%>
-    
-         <%= radio_button_tag "result[answers][#{index}][body]", true, sel%>
+    <%if answer.question.qtype == "boolean"%>
+      <%sel = answer.body == 'true' ? true : false%>
 
-        <label for="result_answers_<%=index%>_body_true"><%= t(:boolean_type_true)%></label>
-        <%= hidden_field_tag "result[answers][#{index}][question_id]", answer.question.id %>
-        
-        <%= radio_button_tag "result[answers][#{index}][body]", false, !sel && answer.id %>
-        <label for="result_answers_<%=index%>_body_false"><%= t(:boolean_type_false)%></label>
-        <%= hidden_field_tag "result[answers][#{index}][question_id]", answer.question.id %>
-      <% end %>
+      <%= radio_button_tag "result[answers][#{index}][body]", true, sel%>
 
-      <%if answer.question.qtype == "text" || answer.question.qtype == "string"%>
-        <%= text_field_tag "result[answers][#{index}][body]", answer.body %>
-        <%= hidden_field_tag "result[answers][#{index}][question_id]", answer.question.id %>
-      <%end %>
+      <label for="result_answers_<%=index%>_body_true"><%= t(:boolean_type_true)%></label>
+      <%= hidden_field_tag "result[answers][#{index}][question_id]", answer.question.id %>
 
-      <%if answer.question.qtype == "select" %>
-        <%= select_tag "result[answers][#{index}][body]", answer.question.variants.split(/\n/).map{|el| 
-             sel = el == answer.body ? 'selected' : ""
-             "<option #{sel}>" + el + "</option>"
-           }.join %>
-        <%= hidden_field_tag "result[answers][#{index}][question_id]", answer.question.id %>
-      <% end %>
-    
+      <%= radio_button_tag "result[answers][#{index}][body]", false, !sel && answer.id %>
+      <label for="result_answers_<%=index%>_body_false"><%= t(:boolean_type_false)%></label>
+      <%= hidden_field_tag "result[answers][#{index}][question_id]", answer.question.id %>
+    <% end %>
+
+    <%if answer.question.qtype == "text" || answer.question.qtype == "string"%>
+      <%= text_field_tag "result[answers][#{index}][body]", answer.body %>
+      <%= hidden_field_tag "result[answers][#{index}][question_id]", answer.question.id %>
+    <%end %>
+
+    <%if answer.question.qtype == "select" %>
+      <%= select_tag "result[answers][#{index}][body]", answer.question.variants.split(/\n/).map{|el|
+        sel = el == answer.body ? 'selected' : ""
+        "<option #{sel}>" + el + "</option>"
+      }.join %>
+      <%= hidden_field_tag "result[answers][#{index}][question_id]", answer.question.id %>
+    <% end %>
+
   </div>
 <%end%>
 

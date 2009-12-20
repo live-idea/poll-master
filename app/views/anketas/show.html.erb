@@ -26,10 +26,6 @@
         <%= @anketa.description %>
       </p>
 
-      <p>
-        <b>Poll_id:</b>
-        <%= @anketa.poll_id %>
-      </p>
       <%= link_to t(:edit_img, :img=>image_tag("web-app-theme/application_edit.png", :alt =>  t(:destroy))), edit_poll_anketa_path(@poll,@anketa), :class => "button" %>
       <%= link_to t(:destroy_img, :img=>image_tag("web-app-theme/cross.png", :alt =>  t(:destroy))), poll_anketa_path(@poll,@anketa), :method => "delete", :class => "button", :confirm => t(:are_you_sure) %>
       <div class="clear"></div>
@@ -44,7 +40,7 @@
               <tr class="<%= cycle("odd", "even") %>">
 
                 <td width="5%" class="handler_move">
-                 
+
                 </td>
 
                 <td width="50%">

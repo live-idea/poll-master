@@ -8,6 +8,13 @@
 
   <div class="content">            
    <div class="inner">
+     <%if @result.errors.any?%>
+     <div id="errorExplanation" class="errorExplanation">
+       <%=t:field_can_not_be_empty%>
+     </div>
+     <%end%>
+
+
       <% form_for :result, :url => poll_anketa_results_path(@poll,@anketa), :html => { :class => :form } do |f| -%>
         <%= render :partial => "form", :locals => {:f => f} %>
       <% end -%>

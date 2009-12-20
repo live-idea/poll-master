@@ -93,6 +93,8 @@ uk:
   #Result page
   result_new: "Заповнити анкету"
   results_all: "Результати"
+  result_edit: "Редагувати результати"
+  field_can_not_be_empty: "Поля не можуть бути пустими!"
 
   #description
   question_new: "Створити нове запитання"
