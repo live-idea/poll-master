@@ -24,15 +24,15 @@
           </td>
 					
           <td>
-		<%= link_to result.anketa.title, result_path(result) %>
+		<%= link_to result.anketa.title, poll_anketa_result_path(@poll,@anketa,result) %>
           </td>
 					
 	  <td>
             <%= result.created_at %>
           </td>
           <td class="last">
-            <%= link_to 'show', result_path(result) %> |
-            <%= link_to 'edit', edit_result_path(result) %> |
+            <%= link_to 'show', poll_anketa_result_path(@poll,@anketa,result) %> |
+            <%= link_to 'edit', edit_poll_anketa_result_path(@poll,@anketa,result) %> |
             <%= link_to 'destroy', poll_anketa_result_path(@poll,@anketa,result), :method => :delete, :confirm => 'Are you sure?' %>
           </td>
         </tr>          

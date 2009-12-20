@@ -10,7 +10,7 @@
   <div class="content">            
     <h2 class="title">Edit Result</h2>
     <div class="inner">
-      <% form_for @result, :url => result_path(@result), :html => { :class => :form } do |f| -%>
+      <% form_for @result, :url => poll_anketa_result_path(@poll,@anketa,@result), :html => { :class => :form } do |f| -%>
         <%= render :partial => "form", :locals => {:f => f} %>
       <% end -%>
     </div>

@@ -51,7 +51,7 @@ class ResultsController < ApplicationController
     respond_to do |format|
       if @result.save
         flash[:notice] = 'Result was successfully created.'
-        format.html { redirect_to(poll_anketa_results_path(@poll,@anketa))}
+        format.html { redirect_to(poll_anketa_path(@poll,@anketa))}
       else
         format.html { render :action => "new" }
       end
@@ -66,7 +66,7 @@ class ResultsController < ApplicationController
     respond_to do |format|
       if @result.update_attributes(params[:result])
         flash[:notice] = 'Result was successfully updated.'
-        format.html { redirect_to(@result) }
+        format.html { redirect_to(poll_anketa_results_path(@poll,@anketa)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

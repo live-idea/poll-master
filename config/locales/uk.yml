@@ -101,7 +101,7 @@ uk:
   string_type:  "Стрічка"
   text_type:    "Текст"
   select_type:  "Вибір"
-  boolean_type: "Логіцний"
+  boolean_type: "Логічний"
   boolean_type_true:  "Так"
   boolean_type_false: "Ні"
 
