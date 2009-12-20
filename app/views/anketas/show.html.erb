@@ -10,23 +10,23 @@
   <div class="content">
     <div class="inner">
 
-      <p>
-      <p>
-        <b><%=t:title_anketa%>:</b>
-        <%= @anketa.title %>
-      </p>
+
+
+
+      <h3><%= @anketa.title %></h3>
+
 
       <p>
-        <b><%=t:code%>:</b>
+
         <%= @anketa.code %>
       </p>
 
-      <p>
-        <b><%=t:description%>:</b>
-        <%= @anketa.description %>
-      </p>
+     
 
-      <%= link_to t(:edit_img, :img=>image_tag("web-app-theme/application_edit.png", :alt =>  t(:destroy))), edit_poll_anketa_path(@poll,@anketa), :class => "button" %>
+
+      <%= simple_format  @anketa.description %>
+
+      <%= link_to t(:edit_img, :img=>image_tag("web-app-theme/application_edit.png", :alt =>  t(:edit))), edit_poll_anketa_path(@poll,@anketa), :class => "button" %>
       <%= link_to t(:destroy_img, :img=>image_tag("web-app-theme/cross.png", :alt =>  t(:destroy))), poll_anketa_path(@poll,@anketa), :method => "delete", :class => "button", :confirm => t(:are_you_sure) %>
       <div class="clear"></div>
     </div>
@@ -48,11 +48,17 @@
                 </td>
 
                 <td width="15%">
-                  <%= question.qtype %>
+                  <%= case question.qtype
+                    when "boolean" then t(:boolean_type)
+                    when "select" then t(:select_type)
+                    when "string" then t(:string_type)
+                    when "text" then t(:text_type)
+                    else "Unknown"
+                  end %>
                 </td>
                 <td class="last" width="30%">
-                  <%= link_to 'edit', edit_poll_anketa_question_path(@poll,@anketa,question) %> |
-                  <%= link_to 'destroy', poll_anketa_question_path(@poll,@anketa,question), :method => :delete, :confirm => 'Are you sure?' %>
+                  <%= link_to t(:edit), edit_poll_anketa_question_path(@poll,@anketa,question) %> |
+                  <%= link_to t(:destroy), poll_anketa_question_path(@poll,@anketa,question), :method => :delete, :confirm => t(:are_you_sure) %>
                 </td>
               </tr>
             </table>
@@ -62,7 +68,7 @@
     </div>
     <%= sortable_element "questions",
       :url => reorder_poll_anketa_questions_path(@poll,@anketa),
-      :handle=> 'reorder_h' %>
+      :handle=> 'handler_move' %>
   </div>
 </div>
 

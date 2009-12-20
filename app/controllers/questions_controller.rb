@@ -60,7 +60,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(params[:question])
     @question.anketa = @anketa #зберігання до якої анкети належить питання
-
+    @question.position = @anketa.questions.length
     respond_to do |format|
       if @question.save
         flash[:notice] = 'Question was successfully created.'

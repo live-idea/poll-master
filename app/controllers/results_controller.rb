@@ -54,7 +54,7 @@ class ResultsController < ApplicationController
         if params["SubmitAndNext"]
           format.html { redirect_to(new_poll_anketa_result_path(@poll,@anketa))}
         else
-          format.html { redirect_to(poll_anketa_path(@poll,@anketa))}
+          format.html { redirect_to(poll_anketa_results_path(@poll,@anketa))}
         end
       else
         format.html { render :action => "new" }
