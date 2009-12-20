@@ -12,7 +12,7 @@
         <label for="result_answers_<%=index%>_body_true"><%= t(:boolean_type_true)%></label>
         <%= hidden_field_tag "result[answers][#{index}][question_id]", answer.question.id %>
         
-        <%= radio_button_tag "result[answers][#{index}][body]", false, sel && answer.id %>
+        <%= radio_button_tag "result[answers][#{index}][body]", false, !sel && answer.id %>
         <label for="result_answers_<%=index%>_body_false"><%= t(:boolean_type_false)%></label>
         <%= hidden_field_tag "result[answers][#{index}][question_id]", answer.question.id %>
       <% end %>
