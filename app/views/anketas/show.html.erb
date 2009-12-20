@@ -10,26 +10,23 @@
   <div class="content">
     <div class="inner">
 
-      <p>
-      <p>
-        <b><%=t:title_anketa%>:</b>
-        <%= @anketa.title %>
-      </p>
+
+
+
+      <h3><%= @anketa.title %></h3>
+
 
       <p>
-        <b><%=t:code%>:</b>
+
         <%= @anketa.code %>
       </p>
 
-      <p>
-        <b><%=t:description%>:</b>
-        <%= @anketa.description %>
-      </p>
 
-      <p>
-        <b>Poll_id:</b>
-        <%= @anketa.poll_id %>
-      </p>
+
+      <%= simple_format  @anketa.description %>
+
+
+
       <%= link_to t(:edit_img, :img=>image_tag("web-app-theme/application_edit.png", :alt =>  t(:destroy))), edit_poll_anketa_path(@poll,@anketa), :class => "button" %>
       <%= link_to t(:destroy_img, :img=>image_tag("web-app-theme/cross.png", :alt =>  t(:destroy))), poll_anketa_path(@poll,@anketa), :method => "delete", :class => "button", :confirm => t(:are_you_sure) %>
       <div class="clear"></div>
@@ -44,7 +41,7 @@
               <tr class="<%= cycle("odd", "even") %>">
 
                 <td width="5%" class="handler_move">
-                 
+
                 </td>
 
                 <td width="50%">
@@ -66,7 +63,7 @@
     </div>
     <%= sortable_element "questions",
       :url => reorder_poll_anketa_questions_path(@poll,@anketa),
-      :handle=> 'reorder_h' %>
+      :handle=> 'handler_move' %>
   </div>
 </div>
 
