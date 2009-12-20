@@ -95,7 +95,8 @@ uk:
   #Result page
   result_new:         "Заповнити анкету"
   result_start_date:  "Дата заповнення"
-  results_all:        "Результати"
+  results:            "Результати"
+  results_all:        "Всі результати"
   
   #description
   question_new: "Створити нове запитання"

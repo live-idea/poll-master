@@ -9,8 +9,9 @@
     <li <%if params[:controller] == 'anketas' && params[:action] == 'show'%>class='active'<%end%>><%=link_to @anketa.title, poll_anketa_path(@poll,@anketa)%></li>
   <%end%>
 
-  <%if @results %>
-    <li class='active'><%=link_to t(:results_all), poll_anketa_results_path(@poll,@anketa)%></li>
+  <%if @results || (@result && @result.id) %>
+    <li <%if params[:controller] == 'results' ||  params[:controller] == 'results' && params[:action] == 'show'%>class='active'> <%end%>
+       <%=link_to t(:results), poll_anketa_results_path(@poll,@anketa)%> </li>
   <%end%>
 </ul>
 <!-- && params[:action] == 'index'%> - перевіряє чи index, та && params[:action] == 'show'% - перевіряє чи show
