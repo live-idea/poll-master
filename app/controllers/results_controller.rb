@@ -51,7 +51,11 @@ class ResultsController < ApplicationController
     respond_to do |format|
       if @result.save
         flash[:notice] = 'Result was successfully created.'
-        format.html { redirect_to(poll_anketa_path(@poll,@anketa))}
+        if params["SubmitAndNext"]
+          format.html { redirect_to(new_poll_anketa_result_path(@poll,@anketa))}
+        else
+          format.html { redirect_to(poll_anketa_path(@poll,@anketa))}
+        end
       else
         format.html { render :action => "new" }
       end
@@ -66,8 +70,11 @@ class ResultsController < ApplicationController
     respond_to do |format|
       if @result.update_attributes(params[:result])
         flash[:notice] = 'Result was successfully updated.'
-        format.html { redirect_to(poll_anketa_results_path(@poll,@anketa)) }
-        format.xml  { head :ok }
+        if params["SubmitAndNext"]
+          format.html { redirect_to(new_poll_anketa_result_path(@poll,@anketa))}
+        else
+          format.html { redirect_to(poll_anketa_results_path(@poll,@anketa)) }
+        end
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @result.errors, :status => :unprocessable_entity }

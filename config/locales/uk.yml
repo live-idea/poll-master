@@ -25,12 +25,14 @@ uk:
   #Major actions
   cancel:           "Відмінити"
   cancel_img:       "{{img}}Відмінити"
+  clear_form:       "Очистити форму"
   create:           "Створити"
   destroy:          "Видалити"
   destroy_img:      "{{img}}Видалити"
   edit:             "Редагувати"
   edit_img:         "{{img}}Редагувати"
   save:             "Зберегти"
+  save_and_new:     "Зберегти і створити нову"
   show:             "Деталі"
   author:           "Автор"
 
