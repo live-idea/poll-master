@@ -1,0 +1,48 @@
+
+<div class="block">
+  <h3><%=t :filter%></h3>
+  <div class="content">
+    <%form_remote_tag :url=>refresh_poll_anketa_results_path(@poll, @anketa) do %>
+      <%  @anketa.questions.each_with_index do |question, index|%>
+
+        <p>
+          <%= label_tag :body, question.body, :class => :label %><br/>
+
+          <%if question.qtype == "boolean"%>
+
+            <%= select_tag "filter[#{question.id}]", options_for_select([[ t(:boolean_type_true), "true"], [ t(:boolean_type_false), "false"], [ t(:boolean_type_all), ""]]) %>
+
+          <%end%>
+
+          <%if question.qtype == "text"%>
+            <%= text_field_tag "filter[#{question.id}]" %>
+          <%end %>
+
+          <%if question.qtype == "select" %>
+            <%= select_tag "filter[#{question.id}]", question.variants.split(/\n/).reverse.push("").reverse.map{|el|
+
+              "<option>" + el + "</option>"
+            }.join %>
+          <% end %>
+
+          <%if question.qtype == "string"%>
+            <%= text_field_tag "filter[#{question.id}]" %>
+          <%end %>
+
+        </p>
+      <%end%>
+        <p>
+          <%=submit_tag t(:filter_results)%>
+        </p>
+    <%end%>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
