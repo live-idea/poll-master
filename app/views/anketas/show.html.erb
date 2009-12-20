@@ -26,6 +26,10 @@
         <%= @anketa.description %>
       </p>
 
+      <p>
+        <b>Poll_id:</b>
+        <%= @anketa.poll_id %>
+      </p>
       <%= link_to t(:edit_img, :img=>image_tag("web-app-theme/application_edit.png", :alt =>  t(:destroy))), edit_poll_anketa_path(@poll,@anketa), :class => "button" %>
       <%= link_to t(:destroy_img, :img=>image_tag("web-app-theme/cross.png", :alt =>  t(:destroy))), poll_anketa_path(@poll,@anketa), :method => "delete", :class => "button", :confirm => t(:are_you_sure) %>
       <div class="clear"></div>
@@ -33,34 +37,36 @@
 
     <div class="inner">
       <h3><%=t:questions_all %></h3>
-      <table class="table">
-        <tr>
-          <th><%=t:question%></th>
-          <th><%=t:qtype%></th>
-
-
-          <th><div align="right"><%=t :options %></div></th>
-        </tr>
+      <ul id="questions">
         <% @anketa.questions.each do |question| -%>
-          <tr class="<%= cycle("odd", "even") %>">
+          <li id="q_<%=question.id%>">
+            <table class="table">
+              <tr class="<%= cycle("odd", "even") %>">
 
+                <td width="5%" class="handler_move">
+                 
+                </td>
 
-            <td>
-              <%=  question.body %>
-            </td>
+                <td width="50%">
+                  <%=  question.body %>
+                </td>
 
-            <td>
-              <%= question.qtype %>
-            </td>
-            <td class="last">
-              <%= link_to 'edit', edit_poll_anketa_question_path(@poll,@anketa,question) %> |
-              <%= link_to 'destroy', poll_anketa_question_path(@poll,@anketa,question), :method => :delete, :confirm => 'Are you sure?' %>
-            </td>
-          </tr>
+                <td width="15%">
+                  <%= question.qtype %>
+                </td>
+                <td class="last" width="30%">
+                  <%= link_to 'edit', edit_poll_anketa_question_path(@poll,@anketa,question) %> |
+                  <%= link_to 'destroy', poll_anketa_question_path(@poll,@anketa,question), :method => :delete, :confirm => 'Are you sure?' %>
+                </td>
+              </tr>
+            </table>
+          </li>
         <% end -%>
-      </table>
+      </ul>
     </div>
-
+    <%= sortable_element "questions",
+      :url => reorder_poll_anketa_questions_path(@poll,@anketa),
+      :handle=> 'reorder_h' %>
   </div>
 </div>
 
