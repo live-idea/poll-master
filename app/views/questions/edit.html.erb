@@ -9,6 +9,7 @@
   <div class="content">            
     <h2 class="title"><%=t:question_edit%></h2>
     <div class="inner">
+      <%= error_messages_for :question%>
       <% form_for @question, :url => poll_anketa_question_path(@poll,@anketa,@question), :html => { :class => :form } do |f| -%>
         <%= render :partial => "form", :locals => {:f => f} %>
       <% end -%>

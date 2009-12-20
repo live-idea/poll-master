@@ -9,6 +9,7 @@
   <div class="content">            
     <h2 class="title"><%= t(:create) %></h2>
     <div class="inner">
+      <%= error_messages_for :poll%>
       <% form_for :poll, :url => polls_path, :html => { :class => :form } do |f| -%>
         <%= render :partial => "form", :locals => {:f => f} %>
       <% end -%>
