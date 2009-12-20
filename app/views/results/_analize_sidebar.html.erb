@@ -10,7 +10,7 @@
 
           <%if question.qtype == "boolean"%>
 
-            <%= select_tag "filter[#{question.id}]", options_for_select([[ t(:boolean_type_true), "true"], [ t(:boolean_type_false), "false"], [ t(:boolean_type_all), ""]]) %>
+            <%= select_tag "filter[#{question.id}]", options_for_select([ [ t(:boolean_type_all), ""], [ t(:boolean_type_true), "true"], [ t(:boolean_type_false), "false"]]) %>
 
           <%end%>
 
