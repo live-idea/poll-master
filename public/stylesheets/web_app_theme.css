@@ -419,3 +419,12 @@ button.button:active, a.button:active {
   list-style: square;
   margin-left: 15px;
 }
+.handler_move{
+    cursor: move;
+    background-image: url(/images/move.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+ul#questions{
+   list-style: none;
+}

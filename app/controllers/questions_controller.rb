@@ -19,6 +19,15 @@ class QuestionsController < ApplicationController
     end
   end
 
+  # reorder pages
+  def reorder
+    params[:questions].each_with_index { |id,idx|
+      q = @anketa.questions.find_by_id(id)
+      q.update_attribute(:position, idx)
+    }
+    render :nothing=>true
+  end
+
   # GET /questions/1
   # GET /questions/1.xml
   def show
