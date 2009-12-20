@@ -103,7 +103,7 @@ class ResultsController < ApplicationController
   def load
     joins = []
 
-    session[:filter] ||= []
+    session[:filter] ||= [[]]
 
     @anketa.questions.each_with_index do |q, index|
       if !session[:filter]["#{q.id}"].empty?
