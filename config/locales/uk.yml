@@ -102,12 +102,17 @@ uk:
       question: "Запитання"
       anketa:
     attributes:
-      question:
-        body: "Запитання -"
+      poll:
+        title: "Назва анкети -"
+        branch:      "Галузь -"
+        location: "Місце проведення -"
+        description: "Опис -"
       anketa:
         title: "Назва анкети -"
         code: "Код -"
         description: "Опис -"
+      question:
+        body: "Запитання -"
     errors:
       template:
         header:

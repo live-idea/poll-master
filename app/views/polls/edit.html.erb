@@ -10,6 +10,7 @@
   <div class="content">            
     <h2 class="title"><%= t(:edit) %></h2>
     <div class="inner">
+      <%= error_messages_for :poll%>
       <% form_for @poll, :url => poll_path(@poll), :html => { :class => :form } do |f| -%>
         <%= render :partial => "form", :locals => {:f => f} %>
       <% end -%>
