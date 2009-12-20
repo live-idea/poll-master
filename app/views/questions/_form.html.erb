@@ -1,8 +1,10 @@
 
 <div class="group">
   <%= f.label :qtype, t(:qtype), :class => :label %>
-  <%= f.select(:qtype, [[ t(:string_type), "string"], [ t(:text_type), "text"], [ t(:select_type), "select"]], {}, {:onchange=>"select_type()"}) %>
+    <%= f.select(:qtype, [[ t(:string_type), "string"], [ t(:text_type), "text"], [ t(:select_type), "select"], [ t(:boolean_type), "boolean"]], {}, {:onchange=>"select_type()"}) %>
 </div>
+    <span class="description">Ex: a simple text</span>
+  </div>
 
 <div class="group">
   <%= f.label :body, t(:question_body), :class => :label %>

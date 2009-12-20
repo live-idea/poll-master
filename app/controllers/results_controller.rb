@@ -2,7 +2,7 @@ class ResultsController < ApplicationController
   before_filter :get_poll_anketa
 
   def index
-    @results = Result.all
+    @results = @anketa.results.paginate(:page => params[:page] || 1)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,9 +24,11 @@ class ResultsController < ApplicationController
   # GET /results/new
   # GET /results/new.xml
   def new
-   
     @result = Result.new
-    @questions = Question.find_all_by_anketa_id(@anketa)
+
+    @anketa.questions.each do |q|
+      @result.answers << Answer.new({:question=>q})
+    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,14 +46,14 @@ class ResultsController < ApplicationController
   def create
     @result = Result.new(params[:result])
 
+    @result.anketa_id = params[:anketa_id]
+
     respond_to do |format|
       if @result.save
         flash[:notice] = 'Result was successfully created.'
-        format.html { redirect_to(@result) }
-        format.xml  { render :xml => @result, :status => :created, :location => @result }
+        format.html { redirect_to(poll_anketa_results_path(@poll,@anketa))}
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @result.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -80,7 +82,7 @@ class ResultsController < ApplicationController
     @result.destroy
 
     respond_to do |format|
-      format.html { redirect_to(results_url) }
+      format.html { redirect_to(poll_anketa_results_url(@poll,@anketa)) }
       format.xml  { head :ok }
     end
   end

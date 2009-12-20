@@ -90,11 +90,20 @@ uk:
 
   #Result page
   result_new: "Заповнити анкету"
+  results_all: "Результати"
 
   #description
   question_new: "Створити нове запитання"
   question: "Запитання"
   qtype: "Тип запитання"
+
+    #types
+  string_type:  "Стрічка"
+  text_type:    "Текст"
+  select_type:  "Вибір"
+  boolean_type: "Логіцний"
+  boolean_type_true:  "Так"
+  boolean_type_false: "Ні"
 
   #activerecord validates_presence_of
   activerecord:
