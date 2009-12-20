@@ -439,22 +439,22 @@ ul#questions{
 }
 
 .result_form label.label{
-    font-size: 1.8em;
+    font-size: 1.3em;
 }
 .result_form input[type=text]{
-    font-size: 3em;
+    font-size: 1.5em;
     padding : 5px;
     width:90%;
 }
 
 .result_form select{
-    font-size: 3em;
+    font-size: 1.5em;
     padding : 5px;
     width:30%;
 }
 
-.result_form input[type=textarea]{
-    font-size: 2em;
+.result_form textarea{
+    font-size: 1.3em;
     padding : 5px;
     width:90%;
 }
