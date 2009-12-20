@@ -25,7 +25,7 @@
       <%end %>
 
       <%if answer.question.qtype == "select" %>
-        <%= select_tag "result[answers][#{index}][body]", answer.question.variants.split(/\n/).map{|el| 
+        <%= select_tag "result[answers][#{index}][body]", answer.question.variants.split(/\n/).reverse.push("").reverse.map{|el|
              sel = el == answer.body ? 'selected' : ""
              "<option #{sel}>" + el + "</option>"
            }.join %>
