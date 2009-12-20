@@ -21,6 +21,6 @@
   <button class="button" type="submit">
     <%= image_tag("web-app-theme/tick.png", :alt => t(:save)) %> <%= t(:save) %>
   </button>  
-  <%= link_to t(:cancel_img, :img=>image_tag("web-app-theme/cross.png", :alt => t(:cancel))), poll_anketas_path(@poll), :class => "button" %>
+  <%= link_to t(:cancel_img, :img=>image_tag("web-app-theme/cross.png", :alt => t(:cancel))), poll_path(@poll), :class => "button" %>
   <div class="clear"></div>
 </div>
