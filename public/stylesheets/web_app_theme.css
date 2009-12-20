@@ -445,3 +445,13 @@ ul#questions{
     font-size: 3em;
     padding : 5px;
 }
+
+.result_form select{
+    font-size: 3em;
+    padding : 5px;
+}
+
+.result_form input[type=textarea]{
+    font-size: 2em;
+    padding : 5px;
+}
