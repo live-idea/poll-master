@@ -1,7 +1,7 @@
 class Result < ActiveRecord::Base
   belongs_to :anketa
   belongs_to :responder
-  has_many :answers, :dependent => :destroy
+  has_many :answers, :include=>[:question], :order=>"questions.position", :dependent => :destroy
   
 
   def answers=(answers)
