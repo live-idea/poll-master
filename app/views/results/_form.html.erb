@@ -1,9 +1,9 @@
 <%  @result.answers.each_with_index do |answer, index|%>
   <%
-  class_error = "class='group'"
+  class_error = "class='group result_form'"
 
   if answer.errors.any?
-    class_error = "class='group fieldWithErrors'"
+    class_error = "class='group result_form fieldWithErrors'"
   end
 %>
   <div  <%=class_error%>>
