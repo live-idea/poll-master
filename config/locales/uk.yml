@@ -112,6 +112,12 @@ uk:
   boolean_type: "Логічний"
   boolean_type_true:  "Так"
   boolean_type_false: "Ні"
+  boolean_type_all: "Всі відповіді"
+
+  # Аналіз
+  filter_results: "Фільтрувати"
+  analiz_resultativ: "Аналіз результатів. Анкета: "
+
 
   #activerecord validates_presence_of
   activerecord:

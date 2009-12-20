@@ -1,0 +1,30 @@
+
+
+<div class="block">
+  <div class="secondary-navigation">
+    
+    <div class="clear"></div>
+
+
+
+  </div>
+  <div class="content">
+    <h2 class="title"><%=t:analiz_resultativ%><%=@anketa.title%></h2>
+
+
+
+
+    <div class="inner">
+      <div class="analize_select">
+        <%form_remote_tag :url=>refresh_poll_anketa_results_path(@poll, @anketa), :html=>{:id=>"select_form"} do %>
+          <%=select_tag "field", options_for_select(@anketa.questions.collect{|a|[a.body, a.id]}), {:onchange=>"$('select_form').request();"}%>
+        <%end%>
+      </div>
+
+
+      <div id="result_div"><%=render :partial=>"analize_results"%></div>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'analize_sidebar') -%>

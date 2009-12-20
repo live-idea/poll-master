@@ -458,3 +458,8 @@ ul#questions{
     padding : 5px;
     width:90%;
 }
+
+.analize_select{
+    float : right;
+    padding-bottom : 20px;
+}
