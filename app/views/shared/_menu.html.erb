@@ -6,7 +6,7 @@
   <%end%>
 
   <%if @anketa && @anketa.id %>
-    <li <%if (params[:controller] == 'anketas' && params[:action] == 'show') || (params[:controller] == 'results')%>class='active'<%end%>><%=link_to @anketa.title, poll_anketa_path(@poll,@anketa)%></li>
+    <li <%if (params[:controller] == 'anketas' && params[:action] == 'show')%>class='active'<%end%>><%=link_to @anketa.title, poll_anketa_path(@poll,@anketa)%></li>
   <%end%>
 
   <%if @results || (@result && @result.id) %>
