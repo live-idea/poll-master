@@ -1,4 +1,6 @@
 class ResultsController < ApplicationController
+
+  before_filter :login_required
   before_filter :get_poll_anketa
 
   def index
