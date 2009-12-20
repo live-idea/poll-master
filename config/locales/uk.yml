@@ -32,9 +32,11 @@ uk:
   edit:             "Редагувати"
   edit_img:         "{{img}}Редагувати"
   save:             "Зберегти"
-  save_and_new:     "Зберегти і створити нову"
+  save_and_new:     "Зберегти і створити новий"
   show:             "Деталі"
+  
   author:           "Автор"
+
 
   #Major tables
   ID_number:        "№ п/п"
@@ -49,8 +51,8 @@ uk:
   poll_end_date:    "Дата закінчення"
   poll_location:    "Місце проведення"
   poll_new:         "Створити опитування"
-  poll_start_date:  "Створено"  
   poll_state:       "Стан опитування"
+  poll_start_date:  "Створено"
   poll_title:       "Тема опитування"
   polls:            "Опитування"
   polls_all:        "Всі опитування"
@@ -91,15 +93,16 @@ uk:
 
 
   #Result page
-  result_new: "Заповнити анкету"
-  results_all: "Результати"
-
+  result_new:         "Заповнити анкету"
+  result_start_date:  "Дата заповнення"
+  results_all:        "Результати"
+  
   #description
   question_new: "Створити нове запитання"
   question: "Запитання"
   qtype: "Тип запитання"
 
-    #types
+  #types
   string_type:  "Стрічка"
   text_type:    "Текст"
   select_type:  "Вибір"

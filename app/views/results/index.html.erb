@@ -6,15 +6,15 @@
     <div class="clear"></div>
   </div>          
   <div class="content">          
-    <h2 class="title">All Results</h2>
+    <h2 class="title"></h2>
     <div class="inner">
       <table class="table">
         <tr>             
-          <th class="first">ID</th>
+          <th class="first"><%=t :ID_number %></th>
 					
-					<th>Anketa_id</th>
+	  <th><%=t :title_name %></th>
 					
-          <th>Created at</th>
+          <th><%=t :result_start_date %></th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @results.each do |result| -%>
@@ -28,12 +28,12 @@
           </td>
 					
 	  <td>
-            <%= result.created_at %>
+            <%=  l( result.created_at.to_date, :format=> :default)%>
           </td>
           <td class="last">
-            <%= link_to 'show', poll_anketa_result_path(@poll,@anketa,result) %> |
-            <%= link_to 'edit', edit_poll_anketa_result_path(@poll,@anketa,result) %> |
-            <%= link_to 'destroy', poll_anketa_result_path(@poll,@anketa,result), :method => :delete, :confirm => 'Are you sure?' %>
+            <%= link_to t(:show), poll_anketa_result_path(@poll,@anketa,result) %> |
+            <%= link_to t(:edit), edit_poll_anketa_result_path(@poll,@anketa,result) %> |
+            <%= link_to t(:destroy), poll_anketa_result_path(@poll,@anketa,result), :method => :delete, :confirm => t(:are_you_sure) %>
           </td>
         </tr>          
         <% end -%>

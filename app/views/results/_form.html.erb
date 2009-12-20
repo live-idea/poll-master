@@ -19,18 +19,23 @@
         <%= hidden_field_tag "result[answers][#{index}][question_id]", answer.question.id %>
       <% end %>
 
-      <%if answer.question.qtype == "text" || answer.question.qtype == "string"%>
-        <%= text_field_tag "result[answers][#{index}][body]", answer.body %>
+      <%if answer.question.qtype == "text"%>
+        <%= text_area_tag "result[answers][#{index}][body]", answer.body %>
         <%= hidden_field_tag "result[answers][#{index}][question_id]", answer.question.id %>
       <%end %>
 
       <%if answer.question.qtype == "select" %>
-        <%= select_tag "result[answers][#{index}][body]", answer.question.variants.split(/\n/).map{|el| 
+        <%= select_tag "result[answers][#{index}][body]", answer.question.variants.split(/\n/).reverse.push("").reverse.map{|el|
              sel = el == answer.body ? 'selected' : ""
              "<option #{sel}>" + el + "</option>"
            }.join %>
         <%= hidden_field_tag "result[answers][#{index}][question_id]", answer.question.id %>
       <% end %>
+
+      <%if answer.question.qtype == "string"%>
+        <%= text_field_tag "result[answers][#{index}][body]", answer.body %>
+        <%= hidden_field_tag "result[answers][#{index}][question_id]", answer.question.id %>
+      <%end %>
     
   </div>
 <%end%>
