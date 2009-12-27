@@ -7,8 +7,13 @@ class ApplicationController < ActionController::Base
   include AuthenticatedSystem
 
   def check_poll_access
+    
     if (params[:controller] && params[:id]) || (params[:poll_id])
-      @poll =  current_user.polls.find_by_id(params[:controller] == 'polls' ? params[:id] : params[:poll_id])
+      unless current_user
+        @poll =  Poll.find_by_id(params[:poll_id])
+      else
+        @poll =  current_user.polls.find_by_id(params[:controller] == 'polls' ? params[:id] : params[:poll_id])
+      end
       if @poll == nil
         flash[:notice] = 'You do not have access to this poll'
         redirect_to(polls_path)
@@ -19,7 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
   def get_anketa
-    @anketa = Anketa.find_by_poll_id(params[:poll_id])
+    @anketa = Anketa.find_by_id(params[:anketa_id])
   end
 
   # Scrub sensitive parameters from your log

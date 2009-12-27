@@ -425,10 +425,14 @@ button.button:active, a.button:active {
     background-repeat: no-repeat;
     background-position: center center;
 }
-ul#questions{
+ul#questions li{
     list-style: none;
+    display:inline;
 }
 
+ul#questions li b{
+    margin: 60px;
+}
 .result_form{
     padding-top: 10px;
 }
@@ -462,4 +466,8 @@ ul#questions{
 .analize_select{
     float : right;
     padding-bottom : 20px;
+}
+#main .block .content table tr td{
+ 
+    text-align:center;
 }
