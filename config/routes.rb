@@ -14,6 +14,10 @@ ActionController::Routing::Routes.draw do |map|
  
     end
   end
+  
+  map.resources :anketas do |anketa|
+    anketa.resources :results, :collection=>{:thankyou=>:get}
+  end
 
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'

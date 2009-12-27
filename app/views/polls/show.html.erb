@@ -24,6 +24,7 @@
           <th class="first"><%=t :ID_number %></th>
 
           <th><%=t :title_name %></th>
+                                        <th><%=t :anketa_state %></th>
 
           <th><%=t :poll_start_date %></th>
           <th class="last"><%=t :options %></th>
@@ -35,6 +36,9 @@
             </td>
             <td>
               <%= link_to anketa.title, poll_anketa_path(@poll,anketa) %>
+	  </td>
+          <td>
+	    <%= translate_select_for("anketa", anketa.state)%>
             </td>
             <td>
               <%= l( anketa.created_at.to_date, :format=> :default)%>

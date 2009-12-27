@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title><%=@anketa.title%></title>
+    <%= stylesheet_link_tag 'web_app_theme', "themes/djime-cerulean/style", :cache => true %>
+  </head>
+  <body>
+    <div id="container">
+      <div id="box">
+        <div class="flash">
+          <% flash.each do |type, message| -%>
+            <div class="message <%= type %>">
+              <p><%= message %></p>
+            </div>
+          <% end -%>
+        </div>
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

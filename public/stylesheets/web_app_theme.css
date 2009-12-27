@@ -153,6 +153,11 @@ body {
     padding: 10px 15px;
 }
 
+.secondary-navigation ul li span{
+    display: block;
+    padding: 10px 15px;
+}
+
 #footer {
     padding-bottom: 20px;
 }
@@ -352,6 +357,8 @@ a.button:link, a.button:visited, a.button:hover, a.button:active, button.button 
     padding:5px 10px 6px 7px;
     text-decoration: none;
 }
+
+
 
 button.button {
     width:auto;

@@ -37,14 +37,19 @@ uk:
   author:           "Автор"
   back:             "Повернутися назад"
 
-
   #Major tables
   ID_number:        "№ п/п"
   title_name:       "Назва"
   options:          "Опції"
 
+  #Major states
+  choose_state:     "Виберіть стан"
+  choose_text:      "Виберіть значення"
+
   #Poll page
   poll_data:        "Інформація"
+  poll_draft:       "Чорновик"
+  poll_active:      "Активне"
   poll_create_date: "Дата створення"
   poll_branch:      "Галузь"
   poll_description: "Опис опитування"
@@ -61,7 +66,7 @@ uk:
   a_simple_text: "Наприклад: Простий текст"
 
   #question
-  are_you_sure:     "Ви впевненні?"
+  are_you_sure:     "Ви впевнені?"
   question_new: "Створити нове запитання"
   questions_all: "Всі питання"
   question: "Запитання"
@@ -80,10 +85,11 @@ uk:
   #Anketa page
   anketas: "Анкети"
   anketa_all: "Всі анкети"
-
+  anketa_draft:     "Чорновик"
+  anketa_active:    "Активна"
   anketa_new: "Створити нову анкету"
   anketas_all: "Всі анкети"
-
+  anketa_state:   "Стан анкети"
   one_new_anketa: "Нова анкета"
   show_anketa: "Перегляд"
   title_anketa: "Назва анкети"
