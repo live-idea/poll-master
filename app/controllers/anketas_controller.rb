@@ -85,4 +85,9 @@ class AnketasController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def active?
+    self.state == active
+  end
+
 end
