@@ -1,7 +1,7 @@
 class PollsController < ApplicationController
 
   before_filter :login_required
-  before_filter :get_poll_anketa
+  before_filter :check_poll_access
 
   def index
     @polls = Poll.paginate :page => params[:page] || 1
@@ -15,9 +15,6 @@ class PollsController < ApplicationController
   # GET /polls/1
   # GET /polls/1.xml
   def show
-    @poll = Poll.find(params[:id])
-    @anketas = Anketa.find_all_by_poll_id(params[:id])
-    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @poll }

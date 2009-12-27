@@ -1,7 +1,7 @@
 class AnketasController < ApplicationController
   # GET /anketas
   # GET /anketas.xml
-  before_filter :get_poll_anketa
+  before_filter :check_poll_access
 
   def index
     @anketas = @poll.anketas.paginate(:page => params[:page] || 1)

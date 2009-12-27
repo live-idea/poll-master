@@ -6,10 +6,22 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   include AuthenticatedSystem
 
-  def get_poll_anketa
-    @poll = Poll.find_by_id(params[:poll_id])
-    @anketa = Anketa.find_by_id(params[:anketa_id]) #ВИБІР анкети по id
+  def check_poll_access
+    if (params[:controller] && params[:id]) || (params[:poll_id])
+      @poll =  current_user.polls.find_by_id(params[:controller] == 'polls' ? params[:id] : params[:poll_id])
+      if @poll == nil
+        flash[:notice] = 'You do not have access to this poll'
+        redirect_to(polls_path)
+      else
+        @anketas = Anketa.find_all_by_poll_id(params[:id])
+      end
+    end
   end
+
+  def get_anketa
+    @anketa = Anketa.find_by_poll_id(params[:poll_id])
+  end
+
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
 end
