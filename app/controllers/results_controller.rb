@@ -1,7 +1,9 @@
 class ResultsController < ApplicationController
 
   before_filter :login_required
-  before_filter :get_poll_anketa
+  before_filter :check_poll_access
+  before_filter :get_anketa
+
 
   def index
     @results = @anketa.results.paginate(:page => params[:page] || 1)
@@ -27,7 +29,6 @@ class ResultsController < ApplicationController
   # GET /results/new.xml
   def new
     @result = Result.new
-
     @anketa.questions.each do |q|
       @result.answers << Answer.new({:question=>q})
     end

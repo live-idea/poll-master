@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
 
   before_filter :login_required
-  before_filter :get_poll_anketa
+
 
   # GET /questions
   # GET /questions.xml

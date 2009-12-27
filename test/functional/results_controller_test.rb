@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ResultsControllerTest < ActionController::TestCase
   test "should get index" do
-    get :index
+    get poll_anketa_results()
     assert_response :success
     assert_not_nil assigns(:results)
   end
