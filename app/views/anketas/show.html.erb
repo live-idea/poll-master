@@ -21,7 +21,13 @@
       <p>
         <%= translate_select_for("anketa",@anketa.state) %>
       </p>
+
+
       <%= simple_format  @anketa.description %>
+
+      <p>
+        <%=t(:public_link)%> :  <%=link_to new_anketa_result_url(@anketa), new_anketa_result_url(@anketa)%>
+      </p>
 
       <%= link_to t(:edit_img, :img=>image_tag("web-app-theme/application_edit.png", :alt =>  t(:edit))), edit_poll_anketa_path(@poll,@anketa), :class => "button" %>
       <%= link_to t(:destroy_img, :img=>image_tag("web-app-theme/cross.png", :alt =>  t(:destroy))), poll_anketa_path(@poll,@anketa), :method => "delete", :class => "button", :confirm => t(:are_you_sure) %>
