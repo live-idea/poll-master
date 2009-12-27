@@ -29,7 +29,7 @@ class ResultsController < ApplicationController
   def new
     if current_user
       redirect_to poll_anketas_path(@poll) and return unless @anketa.active?
-    else
+    elsif @anketa.active? == 'active'
       flash.now[:error] = t(:anketa_state_is_draft)
       @hide_anketa = true
     end

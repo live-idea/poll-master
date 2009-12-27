@@ -86,8 +86,6 @@ class AnketasController < ApplicationController
     end
   end
 
-  def active?
-    self.state == active
-  end
+  
 
 end
