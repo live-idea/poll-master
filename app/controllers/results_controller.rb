@@ -27,8 +27,9 @@ class ResultsController < ApplicationController
   # GET /results/new
   # GET /results/new.xml
   def new
+    @poll ||=  @anketa.poll
     if current_user
-      redirect_to poll_anketas_path(@poll) and return unless @anketa.active?
+      redirect_to poll_path(@poll) and return unless @anketa.active?
     elsif @anketa.active? == 'active'
       flash.now[:error] = t(:anketa_state_is_draft)
       @hide_anketa = true
@@ -42,9 +43,8 @@ class ResultsController < ApplicationController
       end
     end
 
-    p @hide_anketa
     @result = Result.new
-    @poll ||=  @anketa.poll
+    
     
     @anketa.questions.each do |q|
       @result.answers << Answer.new({:question=>q})
