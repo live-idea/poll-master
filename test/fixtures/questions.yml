@@ -1,7 +1,17 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-# one:
-#   column: value
-#
-# two:
-#   column: value
+q1:
+  id:         1
+  qtype:      text
+  body:       Name
+  mandatory:  0
+  anketa_id:  1
+  position:   1
+
+q2:
+  id:         2
+  qtype:      text
+  body:       Who are you?
+  mandatory:  0
+  anketa_id:  1
+  position:   2
