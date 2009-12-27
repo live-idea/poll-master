@@ -34,8 +34,8 @@ uk:
   save:             "Зберегти"
   save_and_new:     "Зберегти і створити новий"
   show:             "Деталі"
-  
   author:           "Автор"
+  back:             "Повернутися назад"
 
 
   #Major tables
@@ -117,6 +117,8 @@ uk:
   # Аналіз
   filter_results: "Фільтрувати"
   analiz_resultativ: "Аналіз результатів. Анкета: "
+  analiz: "Аналіз"
+  filter: "Фільтр"
 
 
   #activerecord validates_presence_of

@@ -1,11 +1,11 @@
 class ResultsController < ApplicationController
-
+  require 'spreadsheet'
   before_filter :login_required
   before_filter :get_poll_anketa
 
   def index
     @results = @anketa.results.paginate(:page => params[:page] || 1)
-
+    generate_xls
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @results }
@@ -97,16 +97,16 @@ class ResultsController < ApplicationController
   end
 
   def analize
-    @graph = open_flash_chart_object( 600, 300, url_for( :action => 'load', :format => :json ) )
+    @graph = open_flash_chart_object( 600, 350, url_for( :action => 'load', :format => :json ) )
   end
 
   def load
     joins = []
 
-    session[:filter] ||= []
+    session[:filter] ||= {}
 
     @anketa.questions.each_with_index do |q, index|
-      if !session[:filter]["#{q.id}"].empty?
+      if session[:filter]["#{q.id}"] && !session[:filter]["#{q.id}"].empty?
         qstr = session[:filter]["#{q.id}"]
         tbl_name = "an_#{index}"
         joins << " INNER JOIN answers AS #{tbl_name} ON #{tbl_name}.result_id = results.id AND #{tbl_name}.question_id = #{q.id} AND #{tbl_name}.body LIKE  '%#{qstr}%'"
@@ -125,8 +125,11 @@ class ResultsController < ApplicationController
     pie.start_angle = 35
     pie.animate = true
     pie.tooltip = '#val# з #total#<br>#percent# з 100%'
-    pie.colours = ["#d01f3c", "#356aa0", "#C79810"]
+    pie.colours = ["#d01f3c", "#356aa0", "#C79810", "#C35810", "#C755f0", "#559810", "#551f3c", "#556aa0", "#C79550", "#C55810", "#C551f0", "#C55810"]
     pie.grid_colour = "#fff"
+    pie.font_size = "15"
+    
+    
 
     data = []
     res.each do |key, value|
@@ -172,5 +175,19 @@ class ResultsController < ApplicationController
     analyzes
   end
 
-  
+
+  def generate_xls
+    book = Spreadsheet::Workbook.new
+    worksheet = book.create_worksheet
+
+    row = 0
+
+    @results.each do |result|
+      result.answers.each do |answer|
+        worksheet.row(row).concat([answer.body])   
+      end
+      row += 1
+    end
+    book.write "export.xls"
+  end
 end
