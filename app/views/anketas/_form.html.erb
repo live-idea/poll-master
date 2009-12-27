@@ -12,6 +12,12 @@
   </div>
 
   <div class="group">
+    <%= f.label :anketa_state, t(:anketa_state), :class => :label %>
+    <%= f.select(:state, translate_select_for("anketa"), {}, {:onchange=>"select_type()"}) %>
+    <br><span class="description"><%=t:choose_state%></span>
+  </div>
+
+  <div class="group">
     <%= f.label :description, t(:description), :class => :label %>
     <%= f.text_area :description, :class => 'text_area' %>
     <span class="description"><%=t:a_simple_text%></span>
