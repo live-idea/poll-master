@@ -1,7 +1,13 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul>
-        <li><%= link_to t(:question_new), new_poll_anketa_question_path(@poll,@anketa) %></li>
+      <li>
+        <%if @anketa.state == "draft"%>
+          <%= link_to_if @anketa.state == "draft", t(:question_new), new_poll_anketa_question_path(@poll,@anketa) %>
+        <%else%>
+          <span><%= t(:question_new) %></span>
+        <%end%>
+      </li>
       <li><%= link_to t(:result_new), new_poll_anketa_result_path(@poll,@anketa) %></li>
       <li><%= link_to t(:results_all), poll_anketa_results_path(@poll,@anketa) %></li>
       <li><%= link_to t(:analiz), analize_poll_anketa_results_path(@poll,@anketa) %></li>
@@ -16,10 +22,11 @@
 
       <h3><%= @anketa.title %></h3>
       <p>
-        <%= @anketa.code %>
+        <b><%= translate_select_for("anketa",@anketa.state) %></b>
       </p>
+
       <p>
-        <%= translate_select_for("anketa",@anketa.state) %>
+        <%= @anketa.code %>
       </p>
 
 
