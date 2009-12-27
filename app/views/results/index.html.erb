@@ -3,32 +3,39 @@
     <ul>
       <li><%= link_to t(:result_new), new_poll_anketa_result_path(@poll,@anketa) %></li>
       <li><%= link_to t(:analiz), analize_poll_anketa_results_path(@poll,@anketa) %></li>
+      <li><%= link_to t(:excel), download_poll_anketa_results_path(@poll,@anketa) %></li>
     </ul>
     <div class="clear"></div>
   </div>          
   <div class="content">          
     <h2 class="title"><%=t:results_all%></h2>
 
-    <table><tr><% @anketa.questions.each do |question| -%>
-          <td id="q_<%=question.id%>">
-            <strong><%=  question.body %></strong>
-          </td>
-      <% end -%></tr></table>
-
     <div class="inner">
-      <table>
+      
+      <table class="table">
+
+        <tr><% @anketa.questions.each do |question| -%>
+          <th class="<%if @anketa.questions.first == question%>first<%end%> <%if @anketa.questions.last == question%>last<%end%>" id="q_<%=question.id%>">
+            <%=  question.body %>
+            </th>
+        <% end -%></tr>
+
+
+
         <% @results.each do |result| -%>
           <tr> <% result.answers.each do |answer| -%>
 
-              <td><%=answer.body %>: </td>
+              <td><%=answer.body %> </td>
 
 
 
           <% end %></tr>
         <% end %>
       </table>
-      <div class="clear"></div>
+
     </div>
+    <div class="clear"></div>
   </div>
 </div>
+
 <% content_for :sidebar, render(:partial => 'sidebar') -%>

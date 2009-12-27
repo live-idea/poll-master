@@ -1,5 +1,5 @@
 <div class="block">
-   <div class="secondary-navigation">
+  <div class="secondary-navigation">
     <ul>
       <li class="first"><%= link_to t(:polls_all), polls_path  %></li>
       <li class="first"><%= link_to t(:anketa_new), new_poll_anketa_path(@poll) %></li>
@@ -8,47 +8,48 @@
   </div>
   <div class="content">
     <div class="inner">
-        <p>
-          <b><%= t(:poll_description)%>:</b>
-          <%= simple_format @poll.description %>
-        </p>
+      <p>
+        <b><%= t(:poll_description)%>:</b>
+        <%= simple_format @poll.description %>
+      </p>
 
-        <%= link_to t(:edit_img, :img=>image_tag("web-app-theme/application_edit.png", :alt =>  t(:edit))), edit_poll_path(@poll), :class => "button" %>
-        <%= link_to t(:destroy_img, :img=>image_tag("web-app-theme/cross.png", :alt =>  t(:destroy))), poll_path(@poll), :method => "delete", :class => "button", :confirm => t(:are_you_sure) %>
+      <%= link_to t(:edit_img, :img=>image_tag("web-app-theme/application_edit.png", :alt =>  t(:edit))), edit_poll_path(@poll), :class => "button" %>
+      <%= link_to t(:destroy_img, :img=>image_tag("web-app-theme/cross.png", :alt =>  t(:destroy))), poll_path(@poll), :method => "delete", :class => "button", :confirm => t(:are_you_sure) %>
 
-    <div class="clear"></div>
-   </div>
+      <div class="clear"></div>
+    </div>
     <div class="inner">
-             <table class="table">
+      <table class="table">
         <tr>
           <th class="first"><%=t :ID_number %></th>
 
-					<th><%=t :title_name %></th>
+          <th><%=t :title_name %></th>
 
           <th><%=t :poll_start_date %></th>
-          <th><div align="right"><%=t :options %></div></th>
+          <th class="last"><%=t :options %></th>
         </tr>
         <% @anketas.each do |anketa| -%>
-        <tr class="<%= cycle("odd", "even") %>">
-          <td>
-            <%= anketa.id %>
-          </td>
-   	  <td>
-	    <%= link_to anketa.title, poll_anketa_path(@poll,anketa) %>
-	  </td>
-	  <td>
-            <%= l( anketa.created_at.to_date, :format=> :default)%>
-          </td>
-          <td class="last">
-            <%= link_to t(:show), poll_anketa_path(@poll,anketa) %> |
-            <%= link_to t(:edit), edit_poll_anketa_path(@poll,anketa) %> |
-            <%= link_to t(:destroy), poll_anketa_path(@poll,anketa), :method => :delete, :confirm => t(:are_you_sure) %>
-          </td>
-        </tr>
+          <tr class="<%= cycle("odd", "even") %>">
+            <td>
+              <%= anketa.id %>
+            </td>
+            <td>
+              <%= link_to anketa.title, poll_anketa_path(@poll,anketa) %>
+            </td>
+            <td>
+              <%= l( anketa.created_at.to_date, :format=> :default)%>
+            </td>
+            <td class="last">
+              <%= link_to t(:show), poll_anketa_path(@poll,anketa) %> |
+              <%= link_to t(:analiz), analize_poll_anketa_results_path(@poll,anketa) %> |
+              <%= link_to t(:edit), edit_poll_anketa_path(@poll,anketa) %> |
+              <%= link_to t(:destroy), poll_anketa_path(@poll,anketa), :method => :delete, :confirm => t(:are_you_sure) %>
+            </td>
+          </tr>
         <% end -%>
       </table>
+    </div>
   </div>
-     </div>
 </div>
 
 <% content_for :sidebar, render(:partial => 'sidebar') -%>

@@ -10,7 +10,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :polls do |poll|
     poll.resources :anketas do |anketa|
       anketa.resources :questions, :collection=>{:reorder=>:any}
-      anketa.resources :results, :collection => {:analize => :get, :refresh => :post, :load=>:any}
+      anketa.resources :results, :collection => {:download=>:get, :analize => :get, :refresh => :post, :load=>:any}
  
     end
   end

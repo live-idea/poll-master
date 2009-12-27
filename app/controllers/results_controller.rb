@@ -7,7 +7,7 @@ class ResultsController < ApplicationController
 
   def index
     @results = @anketa.results.paginate(:page => params[:page] || 1)
-    generate_xls
+   
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @results }
@@ -182,6 +182,13 @@ class ResultsController < ApplicationController
     worksheet = book.create_worksheet
 
     row = 0
+    @results = @anketa.results.paginate(:page => params[:page] || 1)
+    
+    @anketa.questions.each do |question|
+      worksheet.row(row).concat([question.body])
+    end
+
+    row += 1
 
     @results.each do |result|
       result.answers.each do |answer|
@@ -189,6 +196,17 @@ class ResultsController < ApplicationController
       end
       row += 1
     end
-    book.write "export.xls"
+
+
+    path = "public/exports/#{current_user.id}"
+    Dir.mkdir(path) unless File.exist?(path)
+    book.write "#{path}/export.xls"
+    
   end
+
+  def download
+    generate_xls
+    send_file "public/exports/#{current_user.id}/export.xls", :type=>"application/xls"
+  end
+
 end

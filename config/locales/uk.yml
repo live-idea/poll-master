@@ -74,6 +74,7 @@ uk:
   string_type: "Рядок"
   text_type: "Текст"
   select_type: "Вибіркове"
+ 
 
 
   #Anketa page
@@ -119,6 +120,7 @@ uk:
   analiz_resultativ: "Аналіз результатів. Анкета: "
   analiz: "Аналіз"
   filter: "Фільтр"
+  excel: "Експортувати в Excel"
 
 
   #activerecord validates_presence_of

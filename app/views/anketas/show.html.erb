@@ -22,7 +22,7 @@
         <%= @anketa.code %>
       </p>
 
-     
+
 
 
       <%= simple_format  @anketa.description %>
@@ -34,30 +34,40 @@
 
     <div class="inner">
       <h3><%=t:questions_all %></h3>
+
+      <table class="table">
+        <tr>
+          <th class="first"><%=t :ID_number %></th>
+
+          <th width="34%"><%=t :title_name %></th>
+
+          <th width="35%"><%=t :qtype %></th>
+          <th class="last"><%=t :options %></th>
+        </tr></table>
       <ul id="questions">
         <% @anketa.questions.each do |question| -%>
           <li id="q_<%=question.id%>">
             <table class="table">
               <tr class="<%= cycle("odd", "even") %>">
 
-                <td width="5%" class="handler_move">
+                <td width="10%" class="handler_move">
 
                 </td>
 
-                <td width="50%">
-                  <b><%=  question.body %></b>
+                <td width="34%">
+                  <%=  question.body %>
                 </td>
 
-                <td width="15%">
+                <td width="35%">
                   <%= case question.qtype
-                    when "boolean" then t(:boolean_type)
-                    when "select" then t(:select_type)
-                    when "string" then t(:string_type)
-                    when "text" then t(:text_type)
-                    else "Unknown"
+                  when "boolean" then t(:boolean_type)
+                  when "select" then t(:select_type)
+                  when "string" then t(:string_type)
+                  when "text" then t(:text_type)
+                  else "Unknown"
                   end %>
                 </td>
-                <td class="last" width="30%">
+                <td class="last">
                   <%= link_to t(:edit), edit_poll_anketa_question_path(@poll,@anketa,question) %> |
                   <%= link_to t(:destroy), poll_anketa_question_path(@poll,@anketa,question), :method => :delete, :confirm => t(:are_you_sure) %>
                 </td>
