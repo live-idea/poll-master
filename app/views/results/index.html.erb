@@ -1,7 +1,13 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul>
-      <li><%= link_to t(:result_new), new_poll_anketa_result_path(@poll,@anketa) %></li>
+      <li>
+        <%if @anketa.state == "draft"%>
+          <span><%= t(:result_new) %></span>
+        <%else%>
+          <%= link_to t(:result_new), new_poll_anketa_result_path(@poll,@anketa) %>
+        <%end%>
+      </li>
       <li><%= link_to t(:analiz), analize_poll_anketa_results_path(@poll,@anketa) %></li>
       <li><%= link_to t(:excel), download_poll_anketa_results_path(@poll,@anketa) %></li>
     </ul>
@@ -11,25 +17,27 @@
     <h2 class="title"><%=t:results_all%></h2>
 
     <div class="inner">
-      
+
       <table class="table">
 
         <tr><% @anketa.questions.each do |question| -%>
-          <th class="<%if @anketa.questions.first == question%>first<%end%> <%if @anketa.questions.last == question%>last<%end%>" id="q_<%=question.id%>">
-            <%=  question.body %>
+            <th class="<%if @anketa.questions.first == question%>first<%end%> <%if @anketa.questions.last == question%>last<%end%>" id="q_<%=question.id%>">
+              <%=  question.body %>
             </th>
-        <% end -%></tr>
+          <% end -%></tr>
 
 
 
         <% @results.each do |result| -%>
           <tr> <% result.answers.each do |answer| -%>
 
-              <td><%=answer.body %> </td>
-
-
-
-          <% end %></tr>
+              <td>
+                <% if answer.question.qtype == "boolean" %>
+                 <%= translate_select_for("question",answer.body)%>
+                <%else%>
+                  <%=answer.body %>
+              <%end%></td>
+            <% end %></tr>
         <% end %>
       </table>
 

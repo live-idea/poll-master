@@ -8,7 +8,13 @@
           <span><%= t(:question_new) %></span>
         <%end%>
       </li>
-      <li><%= link_to t(:result_new), new_poll_anketa_result_path(@poll,@anketa) %></li>
+      <li>
+        <%if @anketa.state == "draft"%>
+          <span><%= t(:result_new) %></span>
+        <%else%>
+          <%= link_to t(:result_new), new_poll_anketa_result_path(@poll,@anketa) %>
+        <%end%>
+      </li>
       <li><%= link_to t(:results_all), poll_anketa_results_path(@poll,@anketa) %></li>
       <li><%= link_to t(:analiz), analize_poll_anketa_results_path(@poll,@anketa) %></li>
     </ul>
@@ -22,7 +28,7 @@
 
       <h3><%= @anketa.title %></h3>
       <p>
-        <b><%= translate_select_for("anketa",@anketa.state) %></b>
+      <h4><%= translate_select_for("anketa", @anketa.state) %></h4>
       </p>
 
       <p>
