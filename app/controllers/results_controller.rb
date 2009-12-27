@@ -1,6 +1,6 @@
 class ResultsController < ApplicationController
   require 'spreadsheet'
-  before_filter :login_required
+  before_filter :login_required, :except=>[:new, :create, :thankyou]
   before_filter :check_poll_access
   before_filter :get_anketa
 
@@ -29,14 +29,21 @@ class ResultsController < ApplicationController
   # GET /results/new.xml
   def new
     @result = Result.new
+    @poll ||=  @anketa.poll
+    
     @anketa.questions.each do |q|
       @result.answers << Answer.new({:question=>q})
     end
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @result }
+    unless current_user
+      render :layout=>"result"
+      return
     end
+    
+  end
+
+  def thankyou
+    render :layout=>"result"
   end
 
   # GET /results/1/edit

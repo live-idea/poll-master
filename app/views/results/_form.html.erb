@@ -19,41 +19,50 @@
       <label for="result_answers_<%=index%>_body_true"><%= t(:boolean_type_true)%></label>
       <%= hidden_field_tag "result[answers][#{index}][question_id]", answer.question.id %>
 
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
       <%= radio_button_tag "result[answers][#{index}][body]", false, !sel && answer.id %>
       <label for="result_answers_<%=index%>_body_false"><%= t(:boolean_type_false)%></label>
       <%= hidden_field_tag "result[answers][#{index}][question_id]", answer.question.id %>
     <% end %>
 
-      <%if answer.question.qtype == "text"%>
-        <%= text_area_tag "result[answers][#{index}][body]", answer.body %>
+    <%if answer.question.qtype == "text"%>
+      <%= text_area_tag "result[answers][#{index}][body]", answer.body %>
       <%= hidden_field_tag "result[answers][#{index}][question_id]", answer.question.id %>
     <%end %>
 
     <%if answer.question.qtype == "select" %>
-        <%= select_tag "result[answers][#{index}][body]", answer.question.variants.split(/\n/).reverse.push("").reverse.map{|el|
+      <%= select_tag "result[answers][#{index}][body]", answer.question.variants.split(/\n/).reverse.push("").reverse.map{|el|
         sel = el == answer.body ? 'selected' : ""
         "<option #{sel}>" + el + "</option>"
       }.join %>
       <%= hidden_field_tag "result[answers][#{index}][question_id]", answer.question.id %>
     <% end %>
 
-      <%if answer.question.qtype == "string"%>
-        <%= text_field_tag "result[answers][#{index}][body]", answer.body %>
-        <%= hidden_field_tag "result[answers][#{index}][question_id]", answer.question.id %>
-      <%end %>
+    <%if answer.question.qtype == "string"%>
+      <%= text_field_tag "result[answers][#{index}][body]", answer.body %>
+      <%= hidden_field_tag "result[answers][#{index}][question_id]", answer.question.id %>
+    <%end %>
 
   </div>
 <%end%>
 
 <div class="group navform">
-  <button class="button" type="submit" name="SubmitAndNext">
-    <%= image_tag("web-app-theme/tick.png", :alt => t(:save_and_new)) %> <%= t(:save_and_new) %>
-  </button>
+  <%if current_user%>
+    <button class="button" type="submit" name="SubmitAndNext">
+      <%= image_tag("web-app-theme/tick.png", :alt => t(:save_and_new)) %> <%= t(:save_and_new) %>
+    </button>
+  <%end%>
   <button class="button" type="submit" name="Submit">
     <%= image_tag("web-app-theme/tick.png", :alt => t(:save)) %> <%= t(:save) %>
-  </button>  
-  <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "Cancel")} Cancel", poll_anketa_results_path(@poll,@anketa), :class => "button" %>
+  </button>
+  <%unless current_user%>
+    <button class="button" type="reset" name="Submit2">
+      <%= image_tag("web-app-theme/cross.png", :alt => t(:clear)) %> <%= t(:clear) %>
+    </button>
+  <%end%>
+  <%if current_user%>
+    <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "Cancel")} Cancel", poll_anketa_results_path(@poll,@anketa), :class => "button" %>
+  <%end%>
   <div class="clear"></div>
 </div>
