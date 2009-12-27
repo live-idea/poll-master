@@ -4,7 +4,6 @@ class ResultsController < ApplicationController
   before_filter :check_poll_access
   before_filter :get_anketa
 
-
   def index
     @results = @anketa.results.paginate(:page => params[:page] || 1)
    
@@ -28,13 +27,28 @@ class ResultsController < ApplicationController
   # GET /results/new
   # GET /results/new.xml
   def new
-    @result = Result.new
     @poll ||=  @anketa.poll
+    if current_user
+      redirect_to poll_path(@poll) and return unless @anketa.active?
+    elsif @anketa.active? == 'active'
+      flash.now[:error] = t(:anketa_state_is_draft)
+      @hide_anketa = true
+    end
+
+    past_anketas =  cookies[:anketas] ? cookies[:anketas].split("-") : []
+    unless current_user
+      if past_anketas.include?(params[:anketa_id])
+        flash.now[:error] = t(:only_one_result_per_day)
+        @hide_anketa = true
+      end
+    end
+
+    @result = Result.new
+    
     
     @anketa.questions.each do |q|
       @result.answers << Answer.new({:question=>q})
     end
-
     unless current_user
       render :layout=>"result"
       return
@@ -55,19 +69,28 @@ class ResultsController < ApplicationController
   # POST /results.xml
   def create
     @result = Result.new(params[:result])
-
     @result.anketa_id = params[:anketa_id]
-
     respond_to do |format|
       if @result.save
+
         flash[:notice] = 'Result was successfully created.'
         if params["SubmitAndNext"]
           format.html { redirect_to(new_poll_anketa_result_path(@poll,@anketa))}
         else
-          format.html { redirect_to(poll_anketa_results_path(@poll,@anketa))}
+          format.html { 
+            if current_user
+              redirect_to(poll_anketa_results_path(@poll,@anketa))
+            else
+              past_anketas =  cookies[:anketas] ? cookies[:anketas].split("-") : []
+              past_anketas << params[:anketa_id]
+
+              cookies[:anketas] = { :value => past_anketas.join("-"), :expires => 24.hours.from_now }
+              redirect_to(thankyou_anketa_results_path(@anketa))
+            end
+          }
         end
       else
-        format.html { render :action => "new" }
+        format.html { render :action => "new", :layout=>current_user ? "application" : "result" }
       end
     end
   end
