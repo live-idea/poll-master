@@ -4,7 +4,13 @@
   <div class="secondary-navigation">
     <ul>
       <li><%= link_to t(:anketas_all), poll_path(@poll) %></li>
-      <li><%= link_to t(:result_new), new_poll_anketa_result_path(@poll,@anketa) %></li>
+       <li>
+        <%if @anketa.state == "draft"%>
+          <span><%= t(:result_new) %></span>
+        <%else%>
+          <%= link_to t(:result_new), new_poll_anketa_result_path(@poll,@anketa) %>
+        <%end%>
+      </li>
       <li><%= link_to t(:excel), download_poll_anketa_results_path(@poll,@anketa) %></li>
     </ul>
     <div class="clear"></div>
