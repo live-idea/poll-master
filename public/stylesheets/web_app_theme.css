@@ -184,22 +184,21 @@ body {
 /* tables */
 .table {
     width: 100%;
-    border-collapse: collapse;
     margin-bottom: 15px;
 }
 
 .table th {
     padding: 10px;
     font-weight: bold;
-    text-align: left;
+    text-align: center;
 }
 
 .table th.first {
-    width: 30px;
+    width: 10px;
 }
 
 .table th.last {
-    width: 200px;
+    width: 210px;
 }
 
 .table .checkbox {
@@ -207,7 +206,7 @@ body {
 }
 
 .table td {
-    padding: 10px;
+    padding: 2px;
 }
 
 .table td.last {
@@ -276,7 +275,7 @@ textarea.text_area {
 }
 
 .form div.fieldWithErrors label.label {
-  
+
 }
 
 .form .fieldWithErrors .error {
@@ -430,16 +429,14 @@ button.button:active, a.button:active {
     cursor: move;
     background-image: url(/images/move.png);
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: left center;
+    width:35px
 }
 ul#questions li{
     list-style: none;
     display:inline;
 }
 
-ul#questions li b{
-    margin: 60px;
-}
 .result_form{
     padding-top: 10px;
 }
@@ -471,10 +468,12 @@ ul#questions li b{
 }
 
 .analize_select{
-    float : right;
-    padding-bottom : 20px;
+    width:100%;
+    padding-bottom : 20px; 
 }
-#main .block .content table tr td{
- 
+.analize_select #field{
+    width:100%;
+}
+#result_div{
     text-align:center;
 }
