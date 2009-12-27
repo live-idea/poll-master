@@ -40,6 +40,8 @@ module ApplicationHelper
         when "select" then translated = t(:select_type)
         when "string" then translated = t(:string_type)
         when "text" then translated = t(:text_type)
+        when "true" then translated = t(:boolean_type_true)
+        when "false" then translated = t(:boolean_type_false)
         else translated = "Unknown"
       end
      end
