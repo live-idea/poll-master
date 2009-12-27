@@ -1,7 +1,15 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-# one:
-#   column: value
-#
-# two:
-#   column: value
+  poll_1:
+    id: 1
+    title: жінка політик
+    branch: політика
+    state: draft
+    user_id: 1
+
+  poll_2:
+    id: 2
+    title: мужик політик
+    branch: політика
+    state: draft
+    user_id: 1
