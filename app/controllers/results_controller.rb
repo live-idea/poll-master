@@ -1,6 +1,6 @@
 class ResultsController < ApplicationController
 
-  before_filter :login_required
+  #before_filter :login_required
   before_filter :check_poll_access
   before_filter :get_anketa
 
@@ -28,11 +28,21 @@ class ResultsController < ApplicationController
   # GET /results/new
   # GET /results/new.xml
   def new
+    past_anketas =  cookies[:anketas] || []
+    unless current_user
+      unless past_anketas.include?(params[:anketa_id])
+        past_anketas << params[:anketa_id]
+        cookies[:anketas] = { :value => past_anketas, :expires => 24.hours.from_now }
+      else
+        flash.now[:error] = t(:only_one_result_per_day)
+        @hide_anketa = true
+      end
+    end
+
     @result = Result.new
     @anketa.questions.each do |q|
       @result.answers << Answer.new({:question=>q})
     end
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @result }
@@ -48,9 +58,7 @@ class ResultsController < ApplicationController
   # POST /results.xml
   def create
     @result = Result.new(params[:result])
-
     @result.anketa_id = params[:anketa_id]
-
     respond_to do |format|
       if @result.save
         flash[:notice] = 'Result was successfully created.'
