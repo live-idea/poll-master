@@ -76,7 +76,7 @@ body {
     padding: 0 15px;
 }
 
-#sidebar ul.navigation li a:link, #sidebar ul.navigation li a:visited {
+#sidebar ul.navigation li a:link, #sidebar ul.navigation li a:visited  {
     display: block;
     padding: 10px 15px;
 }
