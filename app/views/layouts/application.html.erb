@@ -38,7 +38,7 @@
         <%= yield %>
         <div id="footer">
           <div class="block">
-            <p>&copy; <%= Time.now.year == 2009 ? Time.now.year : 2009 - Time.now.year %> Poll-Master, <a href="http://live-idea.org">ШРІ</a>.</p>
+            <p>&copy; <%= Time.now.year == 2009 ? Time.now.year : "2009 -".concat(Time.now.year.to_s)%> Poll-Master, <a href="http://live-idea.org">ШРІ</a>.</p>
           </div>      
         </div>
       </div>
