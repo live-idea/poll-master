@@ -10,7 +10,7 @@ uk:
   email: "Електронна пошта"
   password: "Пароль"
   repeat_password: "Повторити пароль"
-  sing_up_enter: "Введення даних для реєстрації"
+  sing_up_enter: "Реєстрація"
   sing_up: "Зареєструватися"
   to_login: "Вхід в систему"
   could_not_login_as: "Не вдалось увійти як <b>%s</b>"

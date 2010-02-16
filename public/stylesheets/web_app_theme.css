@@ -1,18 +1,69 @@
-* {margin:0;padding:0}
+/* CSS Document */
+* {margin: 0; padding: 0; font-size: 12px; font-family: "Century Gothic";}
+body { background: url(../images/background.jpg) top center scroll; min-width: 960px;  }
+
+h1 { font-size: 28px; font-weight: bold; }
+h2 { font-size: 23px; font-weight: bold; }
+h3 { font-size: 14px; font-weight: bold; }
+
+a {text-decoration: none; }
+
+img {border: none; }
+
+.logout { font-size: 14px; font-weight: bold; }
+#top_line .logo { float:left; }
+#top_line .logo a { position: absolute; top: 0; }
+#top_line .menu { float:right; padding-right: 40px; }
+#top_line .line { background: url(/images/line.png) top center scroll; height: 31px; width: 100%;}
+
+/*menu*/
+#top_line .menu a { color: #fefefe; float: left; text-decoration: none; height: 31px; background: url(/images/buttom_menu.png) 0 0 no-repeat; margin-right: 7px; padding-top: 7px; width: 104px; text-align: center;}
+#top_line .menu a:hover { background: url(/images/buttom_menu_hover.png) 0 0 no-repeat; height: 31px; width: 104px; }
+
+/*content*/
+
+#content { clear: both; float: right; height: 100%; }
+
+/*login_form*/
+#content .login_form { padding-top: 25px; padding-right: 55px; }
+#content .login_form h2 { padding-bottom: 10px; }
+#content .login_form .label { font-size: 14px; font-weight: bold; background: #fff; }
+#content .login_form .right .text_field { background: url(/images/text_field.png) 0 0 no-repeat; height: 27px; width: 307px; border: none; padding-left: 5px; padding-top: 5px;}
+#content .login_form .button_enter_form { padding-top: 5px; }
+#content .login_form .button_enter_form .button { color: #fefefe; float: left; text-decoration: none; height: 30px; background: url(/images/enter.png) 0 0 no-repeat; margin-right: 15px; width: 74px; border: none;}
+#content .login_form .button_enter_form .button:hover { background: url(/images/enter_hover.png) 0 0 no-repeat; height: 30px; width: 74px;}
+#content .login_form .button_enter_form a  {color: #fefefe; float: left; margin-left: 6px; text-decoration: none; height: 30px; background: url(/images/registration.png) 0 0 no-repeat; padding-top: 7px; width: 116px; text-align: center;}
+#content .login_form .button_enter_form a:hover { background: url(/images/registration_hover.png) 0 0 no-repeat; height: 30px; width: 116px; }
+#content .login_form .button_enter_form .button_yes_registr  { border:none; color: #fefefe; float: left; text-decoration: none; height: 30px; background: url(/images/registration.png) 0 0 no-repeat; width: 116px; text-align: center;}
+#content .login_form .button_enter_form .button_yes_registr:hover { background: url(/images/registration_hover.png) 0 0 no-repeat; height: 30px; width: 116px; }
+#content .login_form .button_enter_form a.password_email { color: #fefefe; margin-left: 21px; text-decoration: none; height: 30px; background: url(/images/enter.png) 0 0 no-repeat; width: 74px; border: none;}
+#content .login_form .button_enter_form a.password_email:hover { background: url(/images/enter_hover.png) 0 0 no-repeat; height: 30px; width: 74px;}
+
+/*content right*/
+#content .content_right { margin-top: 45px; background: url(/images/form_content_right.png) 0 0 no-repeat; width: 313px; height: 141px; }
+#content .content_right h3 { padding: 20px; }
+
+
+/*footer*/
+#footer .line_b { clear: both; background: url(/images/line.png) bottom center scroll; height: 31px; width: 100%;}
+#footer .line_b p { color: #fff; font-weight: bold; padding: 7px 0 0 40px; float: left; }
+#footer .line_b span { color: #fff; font-weight: bold; padding: 7px 40px 0 0; float: right; }
+#footer .line_b span a { border-bottom: 1px dotted #fff; color: #eee; }
+#footer .line_b span a:hover { border-bottom: 1px dashed #fff; }
+
+
+/*content left*/
+#footer .content_left { margin-left: 40px; clear: both; background: url(/images/form_content_left.png) 0 0 no-repeat; width: 599px; height: 150px; }
+#footer .content_left h1 { padding: 30px; }
+#footer p img { margin-left: 40px; }
+
 .clear { clear: both; height: 0; }
 
-h1 { margin: 15px 0; font-size: 22px; font-weight: normal; }
-h2 { font-size: 22px; margin: 15px 0; font-weight: normal;}
-h3 { font-size: 18px; margin: 10px 0; font-weight: normal;}
-h4 { font-size: 16px; margin: 10px 0; font-weight: normal;}
-hr {height: 1px; border: 0; }
-p { margin: 15px 0;}
-a img { border: none; }
 
-body {
-    font-size: 12px;
-    font-family: sans-serif;
-}
+
+
+hr {height: 1px; border: 0; }
+
 
 #container {
     min-width: 960px;
@@ -110,6 +161,7 @@ body {
 
 #main-navigation {
     width: 100%;
+    margin-top: 100px;
 }
 
 #user-navigation ul, #main-navigation ul, .secondary-navigation ul, #sidebar ul.navigation {
@@ -220,19 +272,7 @@ input.checkbox {
     padding: 0;
 }
 
-.form .group {
-    margin-bottom: 15px;
-}
 
-.form div.left {
-    width: 20%;
-    float: left;
-}
-
-.form div.right {
-    width: 75%;
-    float: right;
-}
 
 .form .columns .column {
     width: 48%;
@@ -246,7 +286,7 @@ input.checkbox {
     float: right;
 }
 
-.form label.label, .form input.text_field, .form textarea.text_area {
+.form textarea.text_area {
     font-size: 1.2em;
     padding: 1px 0;
     margin: 0;
@@ -254,10 +294,6 @@ input.checkbox {
 
 textarea.text_area {
     height : 100px;
-}
-
-.form label.right {
-    text-align: right;
 }
 
 .form input.checkbox, .form input.radio {
@@ -268,11 +304,7 @@ textarea.text_area {
     line-height: 1.5em;
 }
 
-.form label.label {
-    display: block;
-    padding-bottom: 2px;
-    font-weight: bold;
-}
+
 
 .form div.fieldWithErrors label.label {
 

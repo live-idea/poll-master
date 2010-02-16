@@ -19,13 +19,6 @@
 .gray { color:#999; }
 .hightlight { background-color:#ffc; }
 
-a:link, a:visited, a:hover, a:active, h1, h2, h3 { color: #007BA7; }
-
-body {
-  color: #222;
-  background: #C2C8D1;
-  font-family: "Helvetica Neue",Helvetica,Arial,"Bitstream Vera Sans",sans-serif;
-}
 
 hr {
   background: #EEF0F0;
@@ -218,6 +211,7 @@ hr {
   -webkit-border-radius: 3px;
   text-align:center;
   margin: 0 auto 15px;
+  
 }
 
 .flash .message p {

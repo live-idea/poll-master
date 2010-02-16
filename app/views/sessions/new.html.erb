@@ -1,39 +1,50 @@
-<h1>Poll-Master</h1>
-<div class="block" id="block-login">
-  <h2><%= t :login_box %></h2>
-  <div class="content login">
-    <div class="flash">
+	<div class="login_form">
+    <h2><%= t :login_box %></h2>
+         <div class="flash">
       <% flash.each do |type, message| -%>
       <div class="message <%= type %>">
         <p><%=  message %></p>
       </div>
       <% end -%>
     </div>
-    <% form_tag({:action => :create}, :class => 'form login') do -%>
-      <div class="group">
-        <div class="left">
-          <label class="label right"><%= t :login%></label>
-        </div>
-        <div class="right">
-          <%= text_field_tag :login, @login, :class => 'text_field' %>
-        </div>              
-        <div class="clear"></div>
-      </div>
-      <div class="group">
-        <div class="left">
-          <label class="label right"><%= t :password%></label>
-        </div>
-        <div class="right">
-          <%= password_field_tag :password, nil, :class => 'text_field' %>
-        </div>              
-        <div class="clear"></div>
-      </div>
-      <div class="group navform">
-        <div class="right">
-          <input type="submit" class="button" value="<%= t :sign_in%>" /> <%=t :or%> <%= link_to t(:register), signup_path %>
-        </div>
-        <div class="clear"></div>
-      </div>            
+    	<% form_tag({:action => :create}, :class => 'form login') do -%>
+
+       
+
+            <div class="group">
+
+                <div class="left">
+                    <label class="label right"><%= t :login%></label>
+            	</div>
+
+                <div class="right">
+                    <%= text_field_tag :login, @login, :class => 'text_field' %>
+                </div>
+
+                <div class="clear"></div>
+
+      		</div>
+
+          <div class="group">
+                <div class="left">
+                  <label class="label right"><%= t :password%></label>
+                </div>
+
+                <div class="right">
+                 <%= password_field_tag :password, nil, :class => 'text_field' %>
+                </div>
+
+                <div class="clear"></div>
+              </div>
+
+              <div class="group navform">
+                <div class="button_enter_form">
+                  <input type="submit" class="button" value="<%= t :sign_in%>" /> <%= link_to t(:register), signup_path %> <a class="password_email" href="#">Пароль?</a>
+                </div>
+                <div class="clear"></div>
+          </div>
     <% end -%>
-  </div>
-</div>
+    </div>
+
+
+

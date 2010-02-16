@@ -4,12 +4,61 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Poll-Master</title>
 	<%= stylesheet_link_tag 'web_app_theme', "themes/djime-cerulean/style", :cache => true %>
+        		<!--[if lte IE 6]>
+			<%= stylesheet_link_tag "ie6", :cache => true %>
+		<![endif]-->
+                <!--[if lte IE 7]>
+			<%= stylesheet_link_tag "ie7", :cache => true %>
+
+		<![endif]-->
 </head>
 <body>
-  <div id="container">
-    <div id="box">
-      <%= yield %>            
+
+  <div id="top_line">
+
+    <div class="line">
     </div>
-  </div>
+
+	<div class="logo">
+    	<a href="/"><img src="/images/logo.jpg" width="493" height="110" alt="encuesta-pro" /></a>    </div>
+
+    <div class="menu">
+
+            <a href="#">Інструкція</a>
+            <a href="#">Проблематика</a>
+            <a href="#">Контакти</a>
+
+    </div>
+
+</div>
+
+<div id="content">
+
+	<%= yield %>
+
+    <div class="content_right">
+                <h3>У Вас є ряд питань, які Вас цікавлять?
+        В нас Ви можете створити анкету та
+        направити посилання на цю анкету
+        кому забажаєте - все просто та ніякого
+        коду.</h3>
+    </div>
+
+
+</div>
+
+<div id="footer">
+	    <div class="content_left">
+                <h1>Ви в системі створення опитувань,
+анкет - як простих та і складних.</h1>
+    </div>
+
+    <p><img src="/images/ink.jpg" width="141" height="108" alt="ink" /></p>
+
+    <div class="line_b">
+    	<p>Copyright &copy; <%= Time.now.year == 2009 ? Time.now.year : "2009 -".concat(Time.now.year.to_s)%> | ENCUESTA-PRO.com | All rights reserved</p><span>design - <a href="http://design-layout.net">design-layout.net</a></span>
+    </div>
+
+</div>
 </body>
 </html>

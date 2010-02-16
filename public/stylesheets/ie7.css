@@ -1,0 +1,2 @@
+#footer .line_b span a { border-bottom: 1px dotted #fff; color: #eee; position:relative; z-index:1; }
+#footer .line_b span a:hover { border-bottom: 1px dashed #fff; position:relative; z-index:1; }
