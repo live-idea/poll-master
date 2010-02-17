@@ -1,35 +1,35 @@
 body{
-width:expression(
+    width:expression(
                 (document.compatMode && document.compatMode == 'CSS1Compat')
-                ?
-                (
-                    document.documentElement.clientWidth < 960
-                    ?
-                    "960px"
-                    :
-                    (
-                        document.documentElement.clientWidth > 1240
-                        ?
-                        "1240px"
-                        :
-                        "auto"
-                    )
-                )
-                :
-                (
-                    document.body.clientWidth < 960
-                    ?
-                    "960px"
-                    :
-                    (
-                        document.body.clientWidth > 1240
-                        ?
-                        "1240px"
-                        :
-                        "auto"
-                    )
-                )
-            );
+        ?
+        (
+        document.documentElement.clientWidth < 960
+        ?
+        "960px"
+        :
+        (
+        document.documentElement.clientWidth > 1240
+        ?
+        "1240px"
+        :
+        "auto"
+        )
+        )
+        :
+        (
+        document.body.clientWidth < 960
+        ?
+        "960px"
+        :
+        (
+        document.body.clientWidth > 1240
+        ?
+        "1240px"
+        :
+        "auto"
+        )
+        )
+        );
 }
 
 #content { width: 365px; }

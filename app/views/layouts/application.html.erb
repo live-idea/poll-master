@@ -9,6 +9,13 @@
 
 
 <%= stylesheet_link_tag "web_app_theme", "web_app_theme_override", "themes/djime-cerulean/style", :cache => true %>
+<!--[if lte IE 6]>
+			<%= stylesheet_link_tag "ie6", :cache => true %>
+		<![endif]-->
+                <!--[if lte IE 7]>
+			<%= stylesheet_link_tag "ie7", :cache => true %>
+
+		<![endif]-->
 </head>
 <body>
 
@@ -24,9 +31,9 @@
 
     <div class="menu">
 
-            <a href="#">Інструкція</a>
-            <a href="#">Проблематика</a>
-            <a href="#">Контакти</a>
+            <a href="#"><%= t:instruction%></a>
+            <a href="#"><%= t:problems%></a>
+            <a href="#"><%= t:contact%></a>
             <a href="/logout" class="logout"><%= t :logout%></a>
 
     </div>
